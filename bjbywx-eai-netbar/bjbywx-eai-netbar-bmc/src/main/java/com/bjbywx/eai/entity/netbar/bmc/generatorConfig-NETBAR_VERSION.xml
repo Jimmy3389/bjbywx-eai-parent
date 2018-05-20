@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+
+	<classPathEntry
+		location="D:\WorkSpace\Maven\repository\com\ibm\db2\jcc\db2jcc4\10.1\db2jcc4-10.1.jar" />
+
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+			<property name="javaFileEncoding" value="UTF-8" />
+			<property name="beginningDelimiter" value="`" />
+			<property name="endingDelimiter" value="`" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
+			connectionURL="jdbc:db2://59.46.156.220:50000/bmc" userId="db2inst"
+			password="123QWE789">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.bjbywx.eai.entity.netbar.bmc.domain"
+			targetProject="bjbywx-eai-netbar-bmc/src/main/java">
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+
+		<sqlMapGenerator targetPackage="com.bjbywx.eai.entity.netbar.bmc.mapping"
+			targetProject="bjbywx-eai-netbar-bmc/src/main/java">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.bjbywx.eai.entity.netbar.bmc.mapping"
+			targetProject="bjbywx-eai-netbar-bmc/src/main/java">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<!-- table tableName="%" / --><!-- 生成全部表 -->
+
+		<table tableName="NETBAR_VERSION" schema="BMC">
+		</table>
+	</context>
+</generatorConfiguration>

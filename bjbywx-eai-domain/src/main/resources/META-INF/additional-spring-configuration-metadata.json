@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "boyi.eai.datasource.integration.enabled",
+    "type": "java.lang.Boolean",
+    "description": "A description for 'boyi.eai.datasource.integration.enabled'"
+  },
+  {
+    "name": "boyi.eai.datasource.integration.type",
+    "type": "java.lang.String",
+    "description": "A description for 'boyi.eai.datasource.integration.type'"
+  },
+  {
+    "name": "boyi.eai.datasource.integration.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'boyi.eai.datasource.integration.driver-class-name'"
+  },
+  {
+    "name": "boyi.eai.datasource.integration.url",
+    "type": "java.lang.String",
+    "description": "A description for 'boyi.eai.datasource.integration.url'"
+  },
+  {
+    "name": "boyi.eai.datasource.integration.username",
+    "type": "java.lang.String",
+    "description": "A description for 'boyi.eai.datasource.integration.username'"
+  },
+  {
+    "name": "boyi.eai.datasource.integration.password",
+    "type": "java.lang.String",
+    "description": "A description for 'boyi.eai.datasource.integration.password'"
+  }
+]}

@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.bmc.mapping.NetbarExtraMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtra">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="IS_ONLINE" jdbcType="INTEGER" property="isOnline" />
+    <result column="CURRENT_MACHINE_COUNT" jdbcType="INTEGER" property="currentMachineCount" />
+    <result column="ONLINE_MACHINE_COUNT" jdbcType="INTEGER" property="onlineMachineCount" />
+    <result column="OFFLINE_MACHINE_COUNT" jdbcType="INTEGER" property="offlineMachineCount" />
+    <result column="SERVER_VERSION" jdbcType="VARCHAR" property="serverVersion" />
+    <result column="POST_SWITCH" jdbcType="INTEGER" property="postSwitch" />
+    <result column="URL_SWITCH" jdbcType="INTEGER" property="urlSwitch" />
+    <result column="PROTOCOLL_TYPE" jdbcType="INTEGER" property="protocollType" />
+    <result column="QQ_SWITCH" jdbcType="INTEGER" property="qqSwitch" />
+    <result column="UPDATE_SWITCH" jdbcType="INTEGER" property="updateSwitch" />
+    <result column="NETBAR_ID" jdbcType="INTEGER" property="netbarId" />
+    <result column="IS_SETIP" jdbcType="INTEGER" property="isSetip" />
+    <result column="IS_REPORT" jdbcType="VARCHAR" property="isReport" />
+    <result column="GRADE" jdbcType="INTEGER" property="grade" />
+    <result column="VERSION_TYPE" jdbcType="INTEGER" property="versionType" />
+    <result column="CAMERA" jdbcType="INTEGER" property="camera" />
+    <result column="SCANNER" jdbcType="INTEGER" property="scanner" />
+    <result column="READER" jdbcType="INTEGER" property="reader" />
+    <result column="SERVER_IS_ONLINE" jdbcType="INTEGER" property="serverIsOnline" />
+    <result column="TRACE_TM" jdbcType="TIMESTAMP" property="traceTm" />
+    <result column="LAST_ONLINE_TM" jdbcType="TIMESTAMP" property="lastOnlineTm" />
+    <result column="HDWARE_STATUS" jdbcType="VARCHAR" property="hdwareStatus" />
+    <result column="ADMIN_USE_COUNT" jdbcType="INTEGER" property="adminUseCount" />
+    <result column="PLUGIN_VERSION" jdbcType="INTEGER" property="pluginVersion" />
+    <result column="USE_ADMIN" jdbcType="INTEGER" property="useAdmin" />
+    <result column="X_COORDINATE" jdbcType="VARCHAR" property="xCoordinate" />
+    <result column="Y_COORDINATE" jdbcType="VARCHAR" property="yCoordinate" />
+    <result column="USE_MOBILE" jdbcType="INTEGER" property="useMobile" />
+    <result column="USE_CERT" jdbcType="INTEGER" property="useCert" />
+    <result column="CERT_TYPES" jdbcType="VARCHAR" property="certTypes" />
+    <result column="BOUGIEFLG" jdbcType="INTEGER" property="bougieflg" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />
+    <result column="UPDATE_USER_NAME" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="CERT_TYPES_FINGER" jdbcType="VARCHAR" property="certTypesFinger" />
+    <result column="CERT_TYPESF" jdbcType="VARCHAR" property="certTypesf" />
+    <result column="UPDATE_TIMEF" jdbcType="TIMESTAMP" property="updateTimef" />
+    <result column="UPDATE_USERF" jdbcType="VARCHAR" property="updateUserf" />
+    <result column="UPDATE_USER_NAMEF" jdbcType="VARCHAR" property="updateUserNamef" />
+    <result column="MEDIA_COM" jdbcType="INTEGER" property="mediaCom" />
+    <result column="ADMIN_LOGOUT" jdbcType="INTEGER" property="adminLogout" />
+    <result column="ONLINE_STATE" jdbcType="INTEGER" property="onlineState" />
+    <result column="ORGANIZATION_CODE" jdbcType="VARCHAR" property="organizationCode" />
+    <result column="LOCALE_SORT" jdbcType="VARCHAR" property="localeSort" />
+    <result column="INTER_PEOPLE" jdbcType="INTEGER" property="interPeople" />
+    <result column="LEAD_ID_CODE" jdbcType="VARCHAR" property="leadIdCode" />
+    <result column="LEGAL_ID_CODE" jdbcType="VARCHAR" property="legalIdCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SERVICE_CODE, IS_ONLINE, CURRENT_MACHINE_COUNT, ONLINE_MACHINE_COUNT, OFFLINE_MACHINE_COUNT, 
+    SERVER_VERSION, POST_SWITCH, URL_SWITCH, PROTOCOLL_TYPE, QQ_SWITCH, UPDATE_SWITCH, 
+    NETBAR_ID, IS_SETIP, IS_REPORT, GRADE, VERSION_TYPE, CAMERA, SCANNER, READER, SERVER_IS_ONLINE, 
+    TRACE_TM, LAST_ONLINE_TM, HDWARE_STATUS, ADMIN_USE_COUNT, PLUGIN_VERSION, USE_ADMIN, 
+    X_COORDINATE, Y_COORDINATE, USE_MOBILE, USE_CERT, CERT_TYPES, BOUGIEFLG, UPDATE_TIME, 
+    UPDATE_USER, UPDATE_USER_NAME, CERT_TYPES_FINGER, CERT_TYPESF, UPDATE_TIMEF, UPDATE_USERF, 
+    UPDATE_USER_NAMEF, MEDIA_COM, ADMIN_LOGOUT, ONLINE_STATE, ORGANIZATION_CODE, LOCALE_SORT, 
+    INTER_PEOPLE, LEAD_ID_CODE, LEGAL_ID_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtraExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR_EXTRA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR_EXTRA
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from BMC.NETBAR_EXTRA
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtraExample">
+    delete from BMC.NETBAR_EXTRA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtra">
+    insert into BMC.NETBAR_EXTRA (ID, SERVICE_CODE, IS_ONLINE, 
+      CURRENT_MACHINE_COUNT, ONLINE_MACHINE_COUNT, 
+      OFFLINE_MACHINE_COUNT, SERVER_VERSION, POST_SWITCH, 
+      URL_SWITCH, PROTOCOLL_TYPE, QQ_SWITCH, 
+      UPDATE_SWITCH, NETBAR_ID, IS_SETIP, 
+      IS_REPORT, GRADE, VERSION_TYPE, 
+      CAMERA, SCANNER, READER, 
+      SERVER_IS_ONLINE, TRACE_TM, LAST_ONLINE_TM, 
+      HDWARE_STATUS, ADMIN_USE_COUNT, PLUGIN_VERSION, 
+      USE_ADMIN, X_COORDINATE, Y_COORDINATE, 
+      USE_MOBILE, USE_CERT, CERT_TYPES, 
+      BOUGIEFLG, UPDATE_TIME, UPDATE_USER, 
+      UPDATE_USER_NAME, CERT_TYPES_FINGER, CERT_TYPESF, 
+      UPDATE_TIMEF, UPDATE_USERF, UPDATE_USER_NAMEF, 
+      MEDIA_COM, ADMIN_LOGOUT, ONLINE_STATE, 
+      ORGANIZATION_CODE, LOCALE_SORT, INTER_PEOPLE, 
+      LEAD_ID_CODE, LEGAL_ID_CODE)
+    values (#{id,jdbcType=INTEGER}, #{serviceCode,jdbcType=VARCHAR}, #{isOnline,jdbcType=INTEGER}, 
+      #{currentMachineCount,jdbcType=INTEGER}, #{onlineMachineCount,jdbcType=INTEGER}, 
+      #{offlineMachineCount,jdbcType=INTEGER}, #{serverVersion,jdbcType=VARCHAR}, #{postSwitch,jdbcType=INTEGER}, 
+      #{urlSwitch,jdbcType=INTEGER}, #{protocollType,jdbcType=INTEGER}, #{qqSwitch,jdbcType=INTEGER}, 
+      #{updateSwitch,jdbcType=INTEGER}, #{netbarId,jdbcType=INTEGER}, #{isSetip,jdbcType=INTEGER}, 
+      #{isReport,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}, #{versionType,jdbcType=INTEGER}, 
+      #{camera,jdbcType=INTEGER}, #{scanner,jdbcType=INTEGER}, #{reader,jdbcType=INTEGER}, 
+      #{serverIsOnline,jdbcType=INTEGER}, #{traceTm,jdbcType=TIMESTAMP}, #{lastOnlineTm,jdbcType=TIMESTAMP}, 
+      #{hdwareStatus,jdbcType=VARCHAR}, #{adminUseCount,jdbcType=INTEGER}, #{pluginVersion,jdbcType=INTEGER}, 
+      #{useAdmin,jdbcType=INTEGER}, #{xCoordinate,jdbcType=VARCHAR}, #{yCoordinate,jdbcType=VARCHAR}, 
+      #{useMobile,jdbcType=INTEGER}, #{useCert,jdbcType=INTEGER}, #{certTypes,jdbcType=VARCHAR}, 
+      #{bougieflg,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateUserName,jdbcType=VARCHAR}, #{certTypesFinger,jdbcType=VARCHAR}, #{certTypesf,jdbcType=VARCHAR}, 
+      #{updateTimef,jdbcType=TIMESTAMP}, #{updateUserf,jdbcType=VARCHAR}, #{updateUserNamef,jdbcType=VARCHAR}, 
+      #{mediaCom,jdbcType=INTEGER}, #{adminLogout,jdbcType=INTEGER}, #{onlineState,jdbcType=INTEGER}, 
+      #{organizationCode,jdbcType=VARCHAR}, #{localeSort,jdbcType=VARCHAR}, #{interPeople,jdbcType=INTEGER}, 
+      #{leadIdCode,jdbcType=VARCHAR}, #{legalIdCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtra">
+    insert into BMC.NETBAR_EXTRA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="isOnline != null">
+        IS_ONLINE,
+      </if>
+      <if test="currentMachineCount != null">
+        CURRENT_MACHINE_COUNT,
+      </if>
+      <if test="onlineMachineCount != null">
+        ONLINE_MACHINE_COUNT,
+      </if>
+      <if test="offlineMachineCount != null">
+        OFFLINE_MACHINE_COUNT,
+      </if>
+      <if test="serverVersion != null">
+        SERVER_VERSION,
+      </if>
+      <if test="postSwitch != null">
+        POST_SWITCH,
+      </if>
+      <if test="urlSwitch != null">
+        URL_SWITCH,
+      </if>
+      <if test="protocollType != null">
+        PROTOCOLL_TYPE,
+      </if>
+      <if test="qqSwitch != null">
+        QQ_SWITCH,
+      </if>
+      <if test="updateSwitch != null">
+        UPDATE_SWITCH,
+      </if>
+      <if test="netbarId != null">
+        NETBAR_ID,
+      </if>
+      <if test="isSetip != null">
+        IS_SETIP,
+      </if>
+      <if test="isReport != null">
+        IS_REPORT,
+      </if>
+      <if test="grade != null">
+        GRADE,
+      </if>
+      <if test="versionType != null">
+        VERSION_TYPE,
+      </if>
+      <if test="camera != null">
+        CAMERA,
+      </if>
+      <if test="scanner != null">
+        SCANNER,
+      </if>
+      <if test="reader != null">
+        READER,
+      </if>
+      <if test="serverIsOnline != null">
+        SERVER_IS_ONLINE,
+      </if>
+      <if test="traceTm != null">
+        TRACE_TM,
+      </if>
+      <if test="lastOnlineTm != null">
+        LAST_ONLINE_TM,
+      </if>
+      <if test="hdwareStatus != null">
+        HDWARE_STATUS,
+      </if>
+      <if test="adminUseCount != null">
+        ADMIN_USE_COUNT,
+      </if>
+      <if test="pluginVersion != null">
+        PLUGIN_VERSION,
+      </if>
+      <if test="useAdmin != null">
+        USE_ADMIN,
+      </if>
+      <if test="xCoordinate != null">
+        X_COORDINATE,
+      </if>
+      <if test="yCoordinate != null">
+        Y_COORDINATE,
+      </if>
+      <if test="useMobile != null">
+        USE_MOBILE,
+      </if>
+      <if test="useCert != null">
+        USE_CERT,
+      </if>
+      <if test="certTypes != null">
+        CERT_TYPES,
+      </if>
+      <if test="bougieflg != null">
+        BOUGIEFLG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateUserName != null">
+        UPDATE_USER_NAME,
+      </if>
+      <if test="certTypesFinger != null">
+        CERT_TYPES_FINGER,
+      </if>
+      <if test="certTypesf != null">
+        CERT_TYPESF,
+      </if>
+      <if test="updateTimef != null">
+        UPDATE_TIMEF,
+      </if>
+      <if test="updateUserf != null">
+        UPDATE_USERF,
+      </if>
+      <if test="updateUserNamef != null">
+        UPDATE_USER_NAMEF,
+      </if>
+      <if test="mediaCom != null">
+        MEDIA_COM,
+      </if>
+      <if test="adminLogout != null">
+        ADMIN_LOGOUT,
+      </if>
+      <if test="onlineState != null">
+        ONLINE_STATE,
+      </if>
+      <if test="organizationCode != null">
+        ORGANIZATION_CODE,
+      </if>
+      <if test="localeSort != null">
+        LOCALE_SORT,
+      </if>
+      <if test="interPeople != null">
+        INTER_PEOPLE,
+      </if>
+      <if test="leadIdCode != null">
+        LEAD_ID_CODE,
+      </if>
+      <if test="legalIdCode != null">
+        LEGAL_ID_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null">
+        #{isOnline,jdbcType=INTEGER},
+      </if>
+      <if test="currentMachineCount != null">
+        #{currentMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineMachineCount != null">
+        #{onlineMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="offlineMachineCount != null">
+        #{offlineMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="serverVersion != null">
+        #{serverVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="postSwitch != null">
+        #{postSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="urlSwitch != null">
+        #{urlSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="protocollType != null">
+        #{protocollType,jdbcType=INTEGER},
+      </if>
+      <if test="qqSwitch != null">
+        #{qqSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="updateSwitch != null">
+        #{updateSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="netbarId != null">
+        #{netbarId,jdbcType=INTEGER},
+      </if>
+      <if test="isSetip != null">
+        #{isSetip,jdbcType=INTEGER},
+      </if>
+      <if test="isReport != null">
+        #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="versionType != null">
+        #{versionType,jdbcType=INTEGER},
+      </if>
+      <if test="camera != null">
+        #{camera,jdbcType=INTEGER},
+      </if>
+      <if test="scanner != null">
+        #{scanner,jdbcType=INTEGER},
+      </if>
+      <if test="reader != null">
+        #{reader,jdbcType=INTEGER},
+      </if>
+      <if test="serverIsOnline != null">
+        #{serverIsOnline,jdbcType=INTEGER},
+      </if>
+      <if test="traceTm != null">
+        #{traceTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOnlineTm != null">
+        #{lastOnlineTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hdwareStatus != null">
+        #{hdwareStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="adminUseCount != null">
+        #{adminUseCount,jdbcType=INTEGER},
+      </if>
+      <if test="pluginVersion != null">
+        #{pluginVersion,jdbcType=INTEGER},
+      </if>
+      <if test="useAdmin != null">
+        #{useAdmin,jdbcType=INTEGER},
+      </if>
+      <if test="xCoordinate != null">
+        #{xCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="yCoordinate != null">
+        #{yCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="useMobile != null">
+        #{useMobile,jdbcType=INTEGER},
+      </if>
+      <if test="useCert != null">
+        #{useCert,jdbcType=INTEGER},
+      </if>
+      <if test="certTypes != null">
+        #{certTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="bougieflg != null">
+        #{bougieflg,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="certTypesFinger != null">
+        #{certTypesFinger,jdbcType=VARCHAR},
+      </if>
+      <if test="certTypesf != null">
+        #{certTypesf,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTimef != null">
+        #{updateTimef,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserf != null">
+        #{updateUserf,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserNamef != null">
+        #{updateUserNamef,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaCom != null">
+        #{mediaCom,jdbcType=INTEGER},
+      </if>
+      <if test="adminLogout != null">
+        #{adminLogout,jdbcType=INTEGER},
+      </if>
+      <if test="onlineState != null">
+        #{onlineState,jdbcType=INTEGER},
+      </if>
+      <if test="organizationCode != null">
+        #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="localeSort != null">
+        #{localeSort,jdbcType=VARCHAR},
+      </if>
+      <if test="interPeople != null">
+        #{interPeople,jdbcType=INTEGER},
+      </if>
+      <if test="leadIdCode != null">
+        #{leadIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdCode != null">
+        #{legalIdCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtraExample" resultType="java.lang.Long">
+    select count(*) from BMC.NETBAR_EXTRA
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BMC.NETBAR_EXTRA
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceCode != null">
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isOnline != null">
+        IS_ONLINE = #{record.isOnline,jdbcType=INTEGER},
+      </if>
+      <if test="record.currentMachineCount != null">
+        CURRENT_MACHINE_COUNT = #{record.currentMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.onlineMachineCount != null">
+        ONLINE_MACHINE_COUNT = #{record.onlineMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.offlineMachineCount != null">
+        OFFLINE_MACHINE_COUNT = #{record.offlineMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.serverVersion != null">
+        SERVER_VERSION = #{record.serverVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postSwitch != null">
+        POST_SWITCH = #{record.postSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="record.urlSwitch != null">
+        URL_SWITCH = #{record.urlSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="record.protocollType != null">
+        PROTOCOLL_TYPE = #{record.protocollType,jdbcType=INTEGER},
+      </if>
+      <if test="record.qqSwitch != null">
+        QQ_SWITCH = #{record.qqSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateSwitch != null">
+        UPDATE_SWITCH = #{record.updateSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="record.netbarId != null">
+        NETBAR_ID = #{record.netbarId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isSetip != null">
+        IS_SETIP = #{record.isSetip,jdbcType=INTEGER},
+      </if>
+      <if test="record.isReport != null">
+        IS_REPORT = #{record.isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null">
+        GRADE = #{record.grade,jdbcType=INTEGER},
+      </if>
+      <if test="record.versionType != null">
+        VERSION_TYPE = #{record.versionType,jdbcType=INTEGER},
+      </if>
+      <if test="record.camera != null">
+        CAMERA = #{record.camera,jdbcType=INTEGER},
+      </if>
+      <if test="record.scanner != null">
+        SCANNER = #{record.scanner,jdbcType=INTEGER},
+      </if>
+      <if test="record.reader != null">
+        READER = #{record.reader,jdbcType=INTEGER},
+      </if>
+      <if test="record.serverIsOnline != null">
+        SERVER_IS_ONLINE = #{record.serverIsOnline,jdbcType=INTEGER},
+      </if>
+      <if test="record.traceTm != null">
+        TRACE_TM = #{record.traceTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastOnlineTm != null">
+        LAST_ONLINE_TM = #{record.lastOnlineTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hdwareStatus != null">
+        HDWARE_STATUS = #{record.hdwareStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminUseCount != null">
+        ADMIN_USE_COUNT = #{record.adminUseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.pluginVersion != null">
+        PLUGIN_VERSION = #{record.pluginVersion,jdbcType=INTEGER},
+      </if>
+      <if test="record.useAdmin != null">
+        USE_ADMIN = #{record.useAdmin,jdbcType=INTEGER},
+      </if>
+      <if test="record.xCoordinate != null">
+        X_COORDINATE = #{record.xCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yCoordinate != null">
+        Y_COORDINATE = #{record.yCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useMobile != null">
+        USE_MOBILE = #{record.useMobile,jdbcType=INTEGER},
+      </if>
+      <if test="record.useCert != null">
+        USE_CERT = #{record.useCert,jdbcType=INTEGER},
+      </if>
+      <if test="record.certTypes != null">
+        CERT_TYPES = #{record.certTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bougieflg != null">
+        BOUGIEFLG = #{record.bougieflg,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserName != null">
+        UPDATE_USER_NAME = #{record.updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certTypesFinger != null">
+        CERT_TYPES_FINGER = #{record.certTypesFinger,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certTypesf != null">
+        CERT_TYPESF = #{record.certTypesf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTimef != null">
+        UPDATE_TIMEF = #{record.updateTimef,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUserf != null">
+        UPDATE_USERF = #{record.updateUserf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserNamef != null">
+        UPDATE_USER_NAMEF = #{record.updateUserNamef,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mediaCom != null">
+        MEDIA_COM = #{record.mediaCom,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminLogout != null">
+        ADMIN_LOGOUT = #{record.adminLogout,jdbcType=INTEGER},
+      </if>
+      <if test="record.onlineState != null">
+        ONLINE_STATE = #{record.onlineState,jdbcType=INTEGER},
+      </if>
+      <if test="record.organizationCode != null">
+        ORGANIZATION_CODE = #{record.organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.localeSort != null">
+        LOCALE_SORT = #{record.localeSort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interPeople != null">
+        INTER_PEOPLE = #{record.interPeople,jdbcType=INTEGER},
+      </if>
+      <if test="record.leadIdCode != null">
+        LEAD_ID_CODE = #{record.leadIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalIdCode != null">
+        LEGAL_ID_CODE = #{record.legalIdCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BMC.NETBAR_EXTRA
+    set ID = #{record.id,jdbcType=INTEGER},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      IS_ONLINE = #{record.isOnline,jdbcType=INTEGER},
+      CURRENT_MACHINE_COUNT = #{record.currentMachineCount,jdbcType=INTEGER},
+      ONLINE_MACHINE_COUNT = #{record.onlineMachineCount,jdbcType=INTEGER},
+      OFFLINE_MACHINE_COUNT = #{record.offlineMachineCount,jdbcType=INTEGER},
+      SERVER_VERSION = #{record.serverVersion,jdbcType=VARCHAR},
+      POST_SWITCH = #{record.postSwitch,jdbcType=INTEGER},
+      URL_SWITCH = #{record.urlSwitch,jdbcType=INTEGER},
+      PROTOCOLL_TYPE = #{record.protocollType,jdbcType=INTEGER},
+      QQ_SWITCH = #{record.qqSwitch,jdbcType=INTEGER},
+      UPDATE_SWITCH = #{record.updateSwitch,jdbcType=INTEGER},
+      NETBAR_ID = #{record.netbarId,jdbcType=INTEGER},
+      IS_SETIP = #{record.isSetip,jdbcType=INTEGER},
+      IS_REPORT = #{record.isReport,jdbcType=VARCHAR},
+      GRADE = #{record.grade,jdbcType=INTEGER},
+      VERSION_TYPE = #{record.versionType,jdbcType=INTEGER},
+      CAMERA = #{record.camera,jdbcType=INTEGER},
+      SCANNER = #{record.scanner,jdbcType=INTEGER},
+      READER = #{record.reader,jdbcType=INTEGER},
+      SERVER_IS_ONLINE = #{record.serverIsOnline,jdbcType=INTEGER},
+      TRACE_TM = #{record.traceTm,jdbcType=TIMESTAMP},
+      LAST_ONLINE_TM = #{record.lastOnlineTm,jdbcType=TIMESTAMP},
+      HDWARE_STATUS = #{record.hdwareStatus,jdbcType=VARCHAR},
+      ADMIN_USE_COUNT = #{record.adminUseCount,jdbcType=INTEGER},
+      PLUGIN_VERSION = #{record.pluginVersion,jdbcType=INTEGER},
+      USE_ADMIN = #{record.useAdmin,jdbcType=INTEGER},
+      X_COORDINATE = #{record.xCoordinate,jdbcType=VARCHAR},
+      Y_COORDINATE = #{record.yCoordinate,jdbcType=VARCHAR},
+      USE_MOBILE = #{record.useMobile,jdbcType=INTEGER},
+      USE_CERT = #{record.useCert,jdbcType=INTEGER},
+      CERT_TYPES = #{record.certTypes,jdbcType=VARCHAR},
+      BOUGIEFLG = #{record.bougieflg,jdbcType=INTEGER},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{record.updateUser,jdbcType=VARCHAR},
+      UPDATE_USER_NAME = #{record.updateUserName,jdbcType=VARCHAR},
+      CERT_TYPES_FINGER = #{record.certTypesFinger,jdbcType=VARCHAR},
+      CERT_TYPESF = #{record.certTypesf,jdbcType=VARCHAR},
+      UPDATE_TIMEF = #{record.updateTimef,jdbcType=TIMESTAMP},
+      UPDATE_USERF = #{record.updateUserf,jdbcType=VARCHAR},
+      UPDATE_USER_NAMEF = #{record.updateUserNamef,jdbcType=VARCHAR},
+      MEDIA_COM = #{record.mediaCom,jdbcType=INTEGER},
+      ADMIN_LOGOUT = #{record.adminLogout,jdbcType=INTEGER},
+      ONLINE_STATE = #{record.onlineState,jdbcType=INTEGER},
+      ORGANIZATION_CODE = #{record.organizationCode,jdbcType=VARCHAR},
+      LOCALE_SORT = #{record.localeSort,jdbcType=VARCHAR},
+      INTER_PEOPLE = #{record.interPeople,jdbcType=INTEGER},
+      LEAD_ID_CODE = #{record.leadIdCode,jdbcType=VARCHAR},
+      LEGAL_ID_CODE = #{record.legalIdCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtra">
+    update BMC.NETBAR_EXTRA
+    <set>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null">
+        IS_ONLINE = #{isOnline,jdbcType=INTEGER},
+      </if>
+      <if test="currentMachineCount != null">
+        CURRENT_MACHINE_COUNT = #{currentMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="onlineMachineCount != null">
+        ONLINE_MACHINE_COUNT = #{onlineMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="offlineMachineCount != null">
+        OFFLINE_MACHINE_COUNT = #{offlineMachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="serverVersion != null">
+        SERVER_VERSION = #{serverVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="postSwitch != null">
+        POST_SWITCH = #{postSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="urlSwitch != null">
+        URL_SWITCH = #{urlSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="protocollType != null">
+        PROTOCOLL_TYPE = #{protocollType,jdbcType=INTEGER},
+      </if>
+      <if test="qqSwitch != null">
+        QQ_SWITCH = #{qqSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="updateSwitch != null">
+        UPDATE_SWITCH = #{updateSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="netbarId != null">
+        NETBAR_ID = #{netbarId,jdbcType=INTEGER},
+      </if>
+      <if test="isSetip != null">
+        IS_SETIP = #{isSetip,jdbcType=INTEGER},
+      </if>
+      <if test="isReport != null">
+        IS_REPORT = #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        GRADE = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="versionType != null">
+        VERSION_TYPE = #{versionType,jdbcType=INTEGER},
+      </if>
+      <if test="camera != null">
+        CAMERA = #{camera,jdbcType=INTEGER},
+      </if>
+      <if test="scanner != null">
+        SCANNER = #{scanner,jdbcType=INTEGER},
+      </if>
+      <if test="reader != null">
+        READER = #{reader,jdbcType=INTEGER},
+      </if>
+      <if test="serverIsOnline != null">
+        SERVER_IS_ONLINE = #{serverIsOnline,jdbcType=INTEGER},
+      </if>
+      <if test="traceTm != null">
+        TRACE_TM = #{traceTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOnlineTm != null">
+        LAST_ONLINE_TM = #{lastOnlineTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hdwareStatus != null">
+        HDWARE_STATUS = #{hdwareStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="adminUseCount != null">
+        ADMIN_USE_COUNT = #{adminUseCount,jdbcType=INTEGER},
+      </if>
+      <if test="pluginVersion != null">
+        PLUGIN_VERSION = #{pluginVersion,jdbcType=INTEGER},
+      </if>
+      <if test="useAdmin != null">
+        USE_ADMIN = #{useAdmin,jdbcType=INTEGER},
+      </if>
+      <if test="xCoordinate != null">
+        X_COORDINATE = #{xCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="yCoordinate != null">
+        Y_COORDINATE = #{yCoordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="useMobile != null">
+        USE_MOBILE = #{useMobile,jdbcType=INTEGER},
+      </if>
+      <if test="useCert != null">
+        USE_CERT = #{useCert,jdbcType=INTEGER},
+      </if>
+      <if test="certTypes != null">
+        CERT_TYPES = #{certTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="bougieflg != null">
+        BOUGIEFLG = #{bougieflg,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserName != null">
+        UPDATE_USER_NAME = #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="certTypesFinger != null">
+        CERT_TYPES_FINGER = #{certTypesFinger,jdbcType=VARCHAR},
+      </if>
+      <if test="certTypesf != null">
+        CERT_TYPESF = #{certTypesf,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTimef != null">
+        UPDATE_TIMEF = #{updateTimef,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserf != null">
+        UPDATE_USERF = #{updateUserf,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserNamef != null">
+        UPDATE_USER_NAMEF = #{updateUserNamef,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaCom != null">
+        MEDIA_COM = #{mediaCom,jdbcType=INTEGER},
+      </if>
+      <if test="adminLogout != null">
+        ADMIN_LOGOUT = #{adminLogout,jdbcType=INTEGER},
+      </if>
+      <if test="onlineState != null">
+        ONLINE_STATE = #{onlineState,jdbcType=INTEGER},
+      </if>
+      <if test="organizationCode != null">
+        ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="localeSort != null">
+        LOCALE_SORT = #{localeSort,jdbcType=VARCHAR},
+      </if>
+      <if test="interPeople != null">
+        INTER_PEOPLE = #{interPeople,jdbcType=INTEGER},
+      </if>
+      <if test="leadIdCode != null">
+        LEAD_ID_CODE = #{leadIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdCode != null">
+        LEGAL_ID_CODE = #{legalIdCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExtra">
+    update BMC.NETBAR_EXTRA
+    set SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      IS_ONLINE = #{isOnline,jdbcType=INTEGER},
+      CURRENT_MACHINE_COUNT = #{currentMachineCount,jdbcType=INTEGER},
+      ONLINE_MACHINE_COUNT = #{onlineMachineCount,jdbcType=INTEGER},
+      OFFLINE_MACHINE_COUNT = #{offlineMachineCount,jdbcType=INTEGER},
+      SERVER_VERSION = #{serverVersion,jdbcType=VARCHAR},
+      POST_SWITCH = #{postSwitch,jdbcType=INTEGER},
+      URL_SWITCH = #{urlSwitch,jdbcType=INTEGER},
+      PROTOCOLL_TYPE = #{protocollType,jdbcType=INTEGER},
+      QQ_SWITCH = #{qqSwitch,jdbcType=INTEGER},
+      UPDATE_SWITCH = #{updateSwitch,jdbcType=INTEGER},
+      NETBAR_ID = #{netbarId,jdbcType=INTEGER},
+      IS_SETIP = #{isSetip,jdbcType=INTEGER},
+      IS_REPORT = #{isReport,jdbcType=VARCHAR},
+      GRADE = #{grade,jdbcType=INTEGER},
+      VERSION_TYPE = #{versionType,jdbcType=INTEGER},
+      CAMERA = #{camera,jdbcType=INTEGER},
+      SCANNER = #{scanner,jdbcType=INTEGER},
+      READER = #{reader,jdbcType=INTEGER},
+      SERVER_IS_ONLINE = #{serverIsOnline,jdbcType=INTEGER},
+      TRACE_TM = #{traceTm,jdbcType=TIMESTAMP},
+      LAST_ONLINE_TM = #{lastOnlineTm,jdbcType=TIMESTAMP},
+      HDWARE_STATUS = #{hdwareStatus,jdbcType=VARCHAR},
+      ADMIN_USE_COUNT = #{adminUseCount,jdbcType=INTEGER},
+      PLUGIN_VERSION = #{pluginVersion,jdbcType=INTEGER},
+      USE_ADMIN = #{useAdmin,jdbcType=INTEGER},
+      X_COORDINATE = #{xCoordinate,jdbcType=VARCHAR},
+      Y_COORDINATE = #{yCoordinate,jdbcType=VARCHAR},
+      USE_MOBILE = #{useMobile,jdbcType=INTEGER},
+      USE_CERT = #{useCert,jdbcType=INTEGER},
+      CERT_TYPES = #{certTypes,jdbcType=VARCHAR},
+      BOUGIEFLG = #{bougieflg,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+      UPDATE_USER_NAME = #{updateUserName,jdbcType=VARCHAR},
+      CERT_TYPES_FINGER = #{certTypesFinger,jdbcType=VARCHAR},
+      CERT_TYPESF = #{certTypesf,jdbcType=VARCHAR},
+      UPDATE_TIMEF = #{updateTimef,jdbcType=TIMESTAMP},
+      UPDATE_USERF = #{updateUserf,jdbcType=VARCHAR},
+      UPDATE_USER_NAMEF = #{updateUserNamef,jdbcType=VARCHAR},
+      MEDIA_COM = #{mediaCom,jdbcType=INTEGER},
+      ADMIN_LOGOUT = #{adminLogout,jdbcType=INTEGER},
+      ONLINE_STATE = #{onlineState,jdbcType=INTEGER},
+      ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      LOCALE_SORT = #{localeSort,jdbcType=VARCHAR},
+      INTER_PEOPLE = #{interPeople,jdbcType=INTEGER},
+      LEAD_ID_CODE = #{leadIdCode,jdbcType=VARCHAR},
+      LEGAL_ID_CODE = #{legalIdCode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

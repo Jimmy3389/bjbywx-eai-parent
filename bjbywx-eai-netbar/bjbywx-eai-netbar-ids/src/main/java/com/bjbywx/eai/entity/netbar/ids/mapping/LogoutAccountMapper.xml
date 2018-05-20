@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.ids.mapping.LogoutAccountMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccount">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="ID_TYPE" jdbcType="INTEGER" property="idType" />
+    <result column="ID_CODE" jdbcType="VARCHAR" property="idCode" />
+    <result column="ID_NAME" jdbcType="VARCHAR" property="idName" />
+    <result column="USER_NO" jdbcType="VARCHAR" property="userNo" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="SERVICE_WAN_IP" jdbcType="VARCHAR" property="serviceWanIp" />
+    <result column="LOGIN_AT" jdbcType="TIMESTAMP" property="loginAt" />
+    <result column="LOGOUT_AT" jdbcType="TIMESTAMP" property="logoutAt" />
+    <result column="NETBAR_LOGIN_AT" jdbcType="TIMESTAMP" property="netbarLoginAt" />
+    <result column="NETBAR_LOGOUT_AT" jdbcType="TIMESTAMP" property="netbarLogoutAt" />
+    <result column="SCAN_TAG" jdbcType="INTEGER" property="scanTag" />
+    <result column="CREATE_ACCOUNT_FLAG" jdbcType="INTEGER" property="createAccountFlag" />
+    <result column="NATION" jdbcType="VARCHAR" property="nation" />
+    <result column="RECORD_ORDER" jdbcType="VARCHAR" property="recordOrder" />
+    <result column="CONSUME_MONEY" jdbcType="BIGINT" property="consumeMoney" />
+    <result column="TIME_SPACE" jdbcType="BIGINT" property="timeSpace" />
+    <result column="IDS" jdbcType="VARCHAR" property="ids" />
+    <result column="SEND_STATUS" jdbcType="INTEGER" property="sendStatus" />
+    <result column="SESSION_ID" jdbcType="VARCHAR" property="sessionId" />
+    <result column="SOURCE" jdbcType="INTEGER" property="source" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="RESERVE2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="DATA_TAG" jdbcType="INTEGER" property="dataTag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, ID_TYPE, ID_CODE, ID_NAME, USER_NO, SERVICE_CODE, SERVICE_WAN_IP, LOGIN_AT, LOGOUT_AT, 
+    NETBAR_LOGIN_AT, NETBAR_LOGOUT_AT, SCAN_TAG, CREATE_ACCOUNT_FLAG, NATION, RECORD_ORDER, 
+    CONSUME_MONEY, TIME_SPACE, IDS, SEND_STATUS, SESSION_ID, SOURCE, STATUS, AREA_CODE, 
+    RESERVE1, RESERVE2, DATA_TAG
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccountExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IDS.LOGOUT_ACCOUNT_2018_9
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IDS.LOGOUT_ACCOUNT_2018_9
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from IDS.LOGOUT_ACCOUNT_2018_9
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccountExample">
+    delete from IDS.LOGOUT_ACCOUNT_2018_9
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccount">
+    insert into IDS.LOGOUT_ACCOUNT_2018_9 (ID, ID_TYPE, ID_CODE, 
+      ID_NAME, USER_NO, SERVICE_CODE, 
+      SERVICE_WAN_IP, LOGIN_AT, LOGOUT_AT, 
+      NETBAR_LOGIN_AT, NETBAR_LOGOUT_AT, SCAN_TAG, 
+      CREATE_ACCOUNT_FLAG, NATION, RECORD_ORDER, 
+      CONSUME_MONEY, TIME_SPACE, IDS, 
+      SEND_STATUS, SESSION_ID, SOURCE, 
+      STATUS, AREA_CODE, RESERVE1, 
+      RESERVE2, DATA_TAG)
+    values (#{id,jdbcType=BIGINT}, #{idType,jdbcType=INTEGER}, #{idCode,jdbcType=VARCHAR}, 
+      #{idName,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, 
+      #{serviceWanIp,jdbcType=VARCHAR}, #{loginAt,jdbcType=TIMESTAMP}, #{logoutAt,jdbcType=TIMESTAMP}, 
+      #{netbarLoginAt,jdbcType=TIMESTAMP}, #{netbarLogoutAt,jdbcType=TIMESTAMP}, #{scanTag,jdbcType=INTEGER}, 
+      #{createAccountFlag,jdbcType=INTEGER}, #{nation,jdbcType=VARCHAR}, #{recordOrder,jdbcType=VARCHAR}, 
+      #{consumeMoney,jdbcType=BIGINT}, #{timeSpace,jdbcType=BIGINT}, #{ids,jdbcType=VARCHAR}, 
+      #{sendStatus,jdbcType=INTEGER}, #{sessionId,jdbcType=VARCHAR}, #{source,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{areaCode,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{dataTag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccount">
+    insert into IDS.LOGOUT_ACCOUNT_2018_9
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idCode != null">
+        ID_CODE,
+      </if>
+      <if test="idName != null">
+        ID_NAME,
+      </if>
+      <if test="userNo != null">
+        USER_NO,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="serviceWanIp != null">
+        SERVICE_WAN_IP,
+      </if>
+      <if test="loginAt != null">
+        LOGIN_AT,
+      </if>
+      <if test="logoutAt != null">
+        LOGOUT_AT,
+      </if>
+      <if test="netbarLoginAt != null">
+        NETBAR_LOGIN_AT,
+      </if>
+      <if test="netbarLogoutAt != null">
+        NETBAR_LOGOUT_AT,
+      </if>
+      <if test="scanTag != null">
+        SCAN_TAG,
+      </if>
+      <if test="createAccountFlag != null">
+        CREATE_ACCOUNT_FLAG,
+      </if>
+      <if test="nation != null">
+        NATION,
+      </if>
+      <if test="recordOrder != null">
+        RECORD_ORDER,
+      </if>
+      <if test="consumeMoney != null">
+        CONSUME_MONEY,
+      </if>
+      <if test="timeSpace != null">
+        TIME_SPACE,
+      </if>
+      <if test="ids != null">
+        IDS,
+      </if>
+      <if test="sendStatus != null">
+        SEND_STATUS,
+      </if>
+      <if test="sessionId != null">
+        SESSION_ID,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2,
+      </if>
+      <if test="dataTag != null">
+        DATA_TAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=INTEGER},
+      </if>
+      <if test="idCode != null">
+        #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idName != null">
+        #{idName,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWanIp != null">
+        #{serviceWanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAt != null">
+        #{loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutAt != null">
+        #{logoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netbarLoginAt != null">
+        #{netbarLoginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netbarLogoutAt != null">
+        #{netbarLogoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scanTag != null">
+        #{scanTag,jdbcType=INTEGER},
+      </if>
+      <if test="createAccountFlag != null">
+        #{createAccountFlag,jdbcType=INTEGER},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="recordOrder != null">
+        #{recordOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeMoney != null">
+        #{consumeMoney,jdbcType=BIGINT},
+      </if>
+      <if test="timeSpace != null">
+        #{timeSpace,jdbcType=BIGINT},
+      </if>
+      <if test="ids != null">
+        #{ids,jdbcType=VARCHAR},
+      </if>
+      <if test="sendStatus != null">
+        #{sendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sessionId != null">
+        #{sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTag != null">
+        #{dataTag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccountExample" resultType="java.lang.Long">
+    select count(*) from IDS.LOGOUT_ACCOUNT_2018_9
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update IDS.LOGOUT_ACCOUNT_2018_9
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.idType != null">
+        ID_TYPE = #{record.idType,jdbcType=INTEGER},
+      </if>
+      <if test="record.idCode != null">
+        ID_CODE = #{record.idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idName != null">
+        ID_NAME = #{record.idName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userNo != null">
+        USER_NO = #{record.userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceCode != null">
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceWanIp != null">
+        SERVICE_WAN_IP = #{record.serviceWanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginAt != null">
+        LOGIN_AT = #{record.loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logoutAt != null">
+        LOGOUT_AT = #{record.logoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.netbarLoginAt != null">
+        NETBAR_LOGIN_AT = #{record.netbarLoginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.netbarLogoutAt != null">
+        NETBAR_LOGOUT_AT = #{record.netbarLogoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scanTag != null">
+        SCAN_TAG = #{record.scanTag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createAccountFlag != null">
+        CREATE_ACCOUNT_FLAG = #{record.createAccountFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.nation != null">
+        NATION = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordOrder != null">
+        RECORD_ORDER = #{record.recordOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consumeMoney != null">
+        CONSUME_MONEY = #{record.consumeMoney,jdbcType=BIGINT},
+      </if>
+      <if test="record.timeSpace != null">
+        TIME_SPACE = #{record.timeSpace,jdbcType=BIGINT},
+      </if>
+      <if test="record.ids != null">
+        IDS = #{record.ids,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendStatus != null">
+        SEND_STATUS = #{record.sendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.sessionId != null">
+        SESSION_ID = #{record.sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null">
+        SOURCE = #{record.source,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaCode != null">
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserve1 != null">
+        RESERVE1 = #{record.reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserve2 != null">
+        RESERVE2 = #{record.reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataTag != null">
+        DATA_TAG = #{record.dataTag,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update IDS.LOGOUT_ACCOUNT_2018_9
+    set ID = #{record.id,jdbcType=BIGINT},
+      ID_TYPE = #{record.idType,jdbcType=INTEGER},
+      ID_CODE = #{record.idCode,jdbcType=VARCHAR},
+      ID_NAME = #{record.idName,jdbcType=VARCHAR},
+      USER_NO = #{record.userNo,jdbcType=VARCHAR},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      SERVICE_WAN_IP = #{record.serviceWanIp,jdbcType=VARCHAR},
+      LOGIN_AT = #{record.loginAt,jdbcType=TIMESTAMP},
+      LOGOUT_AT = #{record.logoutAt,jdbcType=TIMESTAMP},
+      NETBAR_LOGIN_AT = #{record.netbarLoginAt,jdbcType=TIMESTAMP},
+      NETBAR_LOGOUT_AT = #{record.netbarLogoutAt,jdbcType=TIMESTAMP},
+      SCAN_TAG = #{record.scanTag,jdbcType=INTEGER},
+      CREATE_ACCOUNT_FLAG = #{record.createAccountFlag,jdbcType=INTEGER},
+      NATION = #{record.nation,jdbcType=VARCHAR},
+      RECORD_ORDER = #{record.recordOrder,jdbcType=VARCHAR},
+      CONSUME_MONEY = #{record.consumeMoney,jdbcType=BIGINT},
+      TIME_SPACE = #{record.timeSpace,jdbcType=BIGINT},
+      IDS = #{record.ids,jdbcType=VARCHAR},
+      SEND_STATUS = #{record.sendStatus,jdbcType=INTEGER},
+      SESSION_ID = #{record.sessionId,jdbcType=VARCHAR},
+      SOURCE = #{record.source,jdbcType=INTEGER},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      RESERVE1 = #{record.reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{record.reserve2,jdbcType=VARCHAR},
+      DATA_TAG = #{record.dataTag,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccount">
+    update IDS.LOGOUT_ACCOUNT_2018_9
+    <set>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=INTEGER},
+      </if>
+      <if test="idCode != null">
+        ID_CODE = #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idName != null">
+        ID_NAME = #{idName,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        USER_NO = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWanIp != null">
+        SERVICE_WAN_IP = #{serviceWanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAt != null">
+        LOGIN_AT = #{loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutAt != null">
+        LOGOUT_AT = #{logoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netbarLoginAt != null">
+        NETBAR_LOGIN_AT = #{netbarLoginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netbarLogoutAt != null">
+        NETBAR_LOGOUT_AT = #{netbarLogoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scanTag != null">
+        SCAN_TAG = #{scanTag,jdbcType=INTEGER},
+      </if>
+      <if test="createAccountFlag != null">
+        CREATE_ACCOUNT_FLAG = #{createAccountFlag,jdbcType=INTEGER},
+      </if>
+      <if test="nation != null">
+        NATION = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="recordOrder != null">
+        RECORD_ORDER = #{recordOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeMoney != null">
+        CONSUME_MONEY = #{consumeMoney,jdbcType=BIGINT},
+      </if>
+      <if test="timeSpace != null">
+        TIME_SPACE = #{timeSpace,jdbcType=BIGINT},
+      </if>
+      <if test="ids != null">
+        IDS = #{ids,jdbcType=VARCHAR},
+      </if>
+      <if test="sendStatus != null">
+        SEND_STATUS = #{sendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sessionId != null">
+        SESSION_ID = #{sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTag != null">
+        DATA_TAG = #{dataTag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.LogoutAccount">
+    update IDS.LOGOUT_ACCOUNT_2018_9
+    set ID_TYPE = #{idType,jdbcType=INTEGER},
+      ID_CODE = #{idCode,jdbcType=VARCHAR},
+      ID_NAME = #{idName,jdbcType=VARCHAR},
+      USER_NO = #{userNo,jdbcType=VARCHAR},
+      SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      SERVICE_WAN_IP = #{serviceWanIp,jdbcType=VARCHAR},
+      LOGIN_AT = #{loginAt,jdbcType=TIMESTAMP},
+      LOGOUT_AT = #{logoutAt,jdbcType=TIMESTAMP},
+      NETBAR_LOGIN_AT = #{netbarLoginAt,jdbcType=TIMESTAMP},
+      NETBAR_LOGOUT_AT = #{netbarLogoutAt,jdbcType=TIMESTAMP},
+      SCAN_TAG = #{scanTag,jdbcType=INTEGER},
+      CREATE_ACCOUNT_FLAG = #{createAccountFlag,jdbcType=INTEGER},
+      NATION = #{nation,jdbcType=VARCHAR},
+      RECORD_ORDER = #{recordOrder,jdbcType=VARCHAR},
+      CONSUME_MONEY = #{consumeMoney,jdbcType=BIGINT},
+      TIME_SPACE = #{timeSpace,jdbcType=BIGINT},
+      IDS = #{ids,jdbcType=VARCHAR},
+      SEND_STATUS = #{sendStatus,jdbcType=INTEGER},
+      SESSION_ID = #{sessionId,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      DATA_TAG = #{dataTag,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,15 @@
+server:
+  address: 0.0.0.0
+  http2:
+    enabled: true
+  port: 8080
+spring:
+  security:
+    user:
+      name: system 
+      password: system123
+  profiles:
+    active:
+    - dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss

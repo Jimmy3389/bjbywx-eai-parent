@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.bmc.mapping.NetbarOnlineMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnline">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="POLICE_CODE" jdbcType="VARCHAR" property="policeCode" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="IS_STOP" jdbcType="INTEGER" property="isStop" />
+    <result column="SERVICE_IS_ONLINE" jdbcType="INTEGER" property="serviceIsOnline" />
+    <result column="IS_ONLINE" jdbcType="INTEGER" property="isOnline" />
+    <result column="START_DATE" jdbcType="TIMESTAMP" property="startDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SERVICE_CODE, POLICE_CODE, AREA_CODE, IS_STOP, SERVICE_IS_ONLINE, IS_ONLINE, 
+    START_DATE
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnlineExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR_ONLINE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR_ONLINE
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from BMC.NETBAR_ONLINE
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnlineExample">
+    delete from BMC.NETBAR_ONLINE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnline">
+    insert into BMC.NETBAR_ONLINE (ID, SERVICE_CODE, POLICE_CODE, 
+      AREA_CODE, IS_STOP, SERVICE_IS_ONLINE, 
+      IS_ONLINE, START_DATE)
+    values (#{id,jdbcType=BIGINT}, #{serviceCode,jdbcType=VARCHAR}, #{policeCode,jdbcType=VARCHAR}, 
+      #{areaCode,jdbcType=VARCHAR}, #{isStop,jdbcType=INTEGER}, #{serviceIsOnline,jdbcType=INTEGER}, 
+      #{isOnline,jdbcType=INTEGER}, #{startDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnline">
+    insert into BMC.NETBAR_ONLINE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="policeCode != null">
+        POLICE_CODE,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="isStop != null">
+        IS_STOP,
+      </if>
+      <if test="serviceIsOnline != null">
+        SERVICE_IS_ONLINE,
+      </if>
+      <if test="isOnline != null">
+        IS_ONLINE,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="policeCode != null">
+        #{policeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isStop != null">
+        #{isStop,jdbcType=INTEGER},
+      </if>
+      <if test="serviceIsOnline != null">
+        #{serviceIsOnline,jdbcType=INTEGER},
+      </if>
+      <if test="isOnline != null">
+        #{isOnline,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnlineExample" resultType="java.lang.Long">
+    select count(*) from BMC.NETBAR_ONLINE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BMC.NETBAR_ONLINE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.serviceCode != null">
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeCode != null">
+        POLICE_CODE = #{record.policeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaCode != null">
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isStop != null">
+        IS_STOP = #{record.isStop,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceIsOnline != null">
+        SERVICE_IS_ONLINE = #{record.serviceIsOnline,jdbcType=INTEGER},
+      </if>
+      <if test="record.isOnline != null">
+        IS_ONLINE = #{record.isOnline,jdbcType=INTEGER},
+      </if>
+      <if test="record.startDate != null">
+        START_DATE = #{record.startDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BMC.NETBAR_ONLINE
+    set ID = #{record.id,jdbcType=BIGINT},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      POLICE_CODE = #{record.policeCode,jdbcType=VARCHAR},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      IS_STOP = #{record.isStop,jdbcType=INTEGER},
+      SERVICE_IS_ONLINE = #{record.serviceIsOnline,jdbcType=INTEGER},
+      IS_ONLINE = #{record.isOnline,jdbcType=INTEGER},
+      START_DATE = #{record.startDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnline">
+    update BMC.NETBAR_ONLINE
+    <set>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="policeCode != null">
+        POLICE_CODE = #{policeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isStop != null">
+        IS_STOP = #{isStop,jdbcType=INTEGER},
+      </if>
+      <if test="serviceIsOnline != null">
+        SERVICE_IS_ONLINE = #{serviceIsOnline,jdbcType=INTEGER},
+      </if>
+      <if test="isOnline != null">
+        IS_ONLINE = #{isOnline,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarOnline">
+    update BMC.NETBAR_ONLINE
+    set SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      POLICE_CODE = #{policeCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      IS_STOP = #{isStop,jdbcType=INTEGER},
+      SERVICE_IS_ONLINE = #{serviceIsOnline,jdbcType=INTEGER},
+      IS_ONLINE = #{isOnline,jdbcType=INTEGER},
+      START_DATE = #{startDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

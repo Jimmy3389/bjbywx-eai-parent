@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    generate-ddl: false
+    show-sql: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:db2://59.46.156.220:50000/ids
+    username: db2inst
+    password: 123QWE789
+    driver-class-name: com.ibm.db2.jcc.DB2Driver
+    hikari:
+      pool-name: BOYI
+      auto-commit: true
+      connection-test-query: SELECT 1 FROM DUAL
+      maximum-pool-size: 10
+      minimum-idle: 1
+      max-lifetime: 1800000

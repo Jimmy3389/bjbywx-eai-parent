@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bjbywx.eai</groupId>
+		<artifactId>bjbywx-eai-netbar</artifactId>
+		<version>1.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bjbywx-eai-netbar-ids</artifactId>
+	<name>Beijing BoYiWangXun Integrated Management  For NetBar ID Info Entity Support</name>
+	<description>Beijing BoYiWangXun Integrated Management  For NetBar ID Info Entity Support</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.bjbywx.eai</groupId>
+			<artifactId>bjbywx-eai-common</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bjbywx.eai</groupId>
+			<artifactId>bjbywx-eai-netbar-common</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.bjbywx.eai.entity.netbar.ids.NetBarIdsApplication</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

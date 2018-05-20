@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.ids.mapping.UdpUrlMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.ids.domain.UdpUrl">
+    <result column="SESSION_ID" jdbcType="VARCHAR" property="sessionId" />
+    <result column="TYPE_SEQUENCE" jdbcType="INTEGER" property="typeSequence" />
+    <result column="TOTAL_SEQUENCE" jdbcType="INTEGER" property="totalSequence" />
+    <result column="UPDATE_AT" jdbcType="TIMESTAMP" property="updateAt" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SESSION_ID, TYPE_SEQUENCE, TOTAL_SEQUENCE, UPDATE_AT
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.UdpUrlExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IDS.UDP_URL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.UdpUrlExample">
+    delete from IDS.UDP_URL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.UdpUrl">
+    insert into IDS.UDP_URL (SESSION_ID, TYPE_SEQUENCE, TOTAL_SEQUENCE, 
+      UPDATE_AT)
+    values (#{sessionId,jdbcType=VARCHAR}, #{typeSequence,jdbcType=INTEGER}, #{totalSequence,jdbcType=INTEGER}, 
+      #{updateAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.UdpUrl">
+    insert into IDS.UDP_URL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sessionId != null">
+        SESSION_ID,
+      </if>
+      <if test="typeSequence != null">
+        TYPE_SEQUENCE,
+      </if>
+      <if test="totalSequence != null">
+        TOTAL_SEQUENCE,
+      </if>
+      <if test="updateAt != null">
+        UPDATE_AT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sessionId != null">
+        #{sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeSequence != null">
+        #{typeSequence,jdbcType=INTEGER},
+      </if>
+      <if test="totalSequence != null">
+        #{totalSequence,jdbcType=INTEGER},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.UdpUrlExample" resultType="java.lang.Long">
+    select count(*) from IDS.UDP_URL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update IDS.UDP_URL
+    <set>
+      <if test="record.sessionId != null">
+        SESSION_ID = #{record.sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeSequence != null">
+        TYPE_SEQUENCE = #{record.typeSequence,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalSequence != null">
+        TOTAL_SEQUENCE = #{record.totalSequence,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateAt != null">
+        UPDATE_AT = #{record.updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update IDS.UDP_URL
+    set SESSION_ID = #{record.sessionId,jdbcType=VARCHAR},
+      TYPE_SEQUENCE = #{record.typeSequence,jdbcType=INTEGER},
+      TOTAL_SEQUENCE = #{record.totalSequence,jdbcType=INTEGER},
+      UPDATE_AT = #{record.updateAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

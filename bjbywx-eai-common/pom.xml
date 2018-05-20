@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bjbywx.eai</groupId>
+		<artifactId>bjbywx-eai-parent</artifactId>
+		<version>1.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bjbywx-eai-common</artifactId>
+	<name>Beijing BoYiWangXun Integrated Management For Java Common</name>
+	<description>Beijing BoYiWangXun Integrated Management For Java Common</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.bjbywx.eai</groupId>
+			<artifactId>bjbywx-eai-domain</artifactId>
+			<version>${bjbyxm.eai.version}</version>
+		</dependency>
+	</dependencies>
+</project>

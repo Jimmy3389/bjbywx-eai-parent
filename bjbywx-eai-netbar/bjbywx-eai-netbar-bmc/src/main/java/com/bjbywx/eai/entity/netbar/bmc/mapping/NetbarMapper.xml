@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.bmc.mapping.NetbarMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.bmc.domain.Netbar">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="SERVICE_NAME" jdbcType="VARCHAR" property="serviceName" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ZIP" jdbcType="VARCHAR" property="zip" />
+    <result column="PRINCIPAL" jdbcType="VARCHAR" property="principal" />
+    <result column="PRINCIPAL_TEL" jdbcType="VARCHAR" property="principalTel" />
+    <result column="INFOR_MAN" jdbcType="VARCHAR" property="inforMan" />
+    <result column="INFOR_MAN_TEL" jdbcType="VARCHAR" property="inforManTel" />
+    <result column="INFOR_MAN_EMAIL" jdbcType="VARCHAR" property="inforManEmail" />
+    <result column="PRODUCER_CODE" jdbcType="VARCHAR" property="producerCode" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="ENDING_NUMBER" jdbcType="INTEGER" property="endingNumber" />
+    <result column="SERVER_NUMBER" jdbcType="INTEGER" property="serverNumber" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="NET_TYPE" jdbcType="VARCHAR" property="netType" />
+    <result column="PRACTITIONER_NUMBER" jdbcType="INTEGER" property="practitionerNumber" />
+    <result column="NET_MONITOR_DEPARTMENT" jdbcType="VARCHAR" property="netMonitorDepartment" />
+    <result column="NET_MONITOR_MAN" jdbcType="VARCHAR" property="netMonitorMan" />
+    <result column="NET_MONITOR_TEL" jdbcType="VARCHAR" property="netMonitorTel" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="GET_LOSTCARD_AT" jdbcType="TIMESTAMP" property="getLostcardAt" />
+    <result column="POLICE_ID" jdbcType="INTEGER" property="policeId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="POLICE_CODE" jdbcType="VARCHAR" property="policeCode" />
+    <result column="PUBLIC_NETWORK" jdbcType="VARCHAR" property="publicNetwork" />
+    <result column="ELIGIBIITY" jdbcType="VARCHAR" property="eligibiity" />
+    <result column="ECONOMY_TYPE" jdbcType="VARCHAR" property="economyType" />
+    <result column="TYPE" jdbcType="INTEGER" property="type" />
+    <result column="LOCALE_STYLE" jdbcType="INTEGER" property="localeStyle" />
+    <result column="CREATE_AT" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="POLICE_AREA" jdbcType="VARCHAR" property="policeArea" />
+    <result column="POLICE_MAN" jdbcType="VARCHAR" property="policeMan" />
+    <result column="POLICE_MAN_TEL" jdbcType="VARCHAR" property="policeManTel" />
+    <result column="POLICE_MAN_NO" jdbcType="VARCHAR" property="policeManNo" />
+    <result column="POLICE_NO" jdbcType="VARCHAR" property="policeNo" />
+    <result column="IS_NET" jdbcType="INTEGER" property="isNet" />
+    <result column="VLAN_MODE" jdbcType="INTEGER" property="vlanMode" />
+    <result column="IRONMACHINE_COUNT" jdbcType="INTEGER" property="ironmachineCount" />
+    <result column="AUTH_STATE" jdbcType="INTEGER" property="authState" />
+    <result column="FORHORT" jdbcType="VARCHAR" property="forhort" />
+    <result column="STATES" jdbcType="INTEGER" property="states" />
+    <result column="INSTALLFACILITY" jdbcType="VARCHAR" property="installfacility" />
+    <result column="BUSINESSDATE" jdbcType="VARCHAR" property="businessdate" />
+    <result column="BUSINESSMAN" jdbcType="VARCHAR" property="businessman" />
+    <result column="KEEPPHONE" jdbcType="VARCHAR" property="keepphone" />
+    <result column="SAFETYMANUFACTURER" jdbcType="VARCHAR" property="safetymanufacturer" />
+    <result column="LEGAL_STATE" jdbcType="INTEGER" property="legalState" />
+    <result column="REGIST_NUMBER" jdbcType="VARCHAR" property="registNumber" />
+    <result column="ALL_TERMINAL" jdbcType="INTEGER" property="allTerminal" />
+    <result column="ONLINE_TERMINAL" jdbcType="INTEGER" property="onlineTerminal" />
+    <result column="SHIELD_WEB" jdbcType="INTEGER" property="shieldWeb" />
+    <result column="SHIELD_WINDOW" jdbcType="INTEGER" property="shieldWindow" />
+    <result column="SHIELD_PROGRESS" jdbcType="INTEGER" property="shieldProgress" />
+    <result column="NATURE" jdbcType="INTEGER" property="nature" />
+    <result column="USE_ADMIN" jdbcType="INTEGER" property="useAdmin" />
+    <result column="IS_CHECK" jdbcType="INTEGER" property="isCheck" />
+    <result column="IS_EQUIPMENT" jdbcType="INTEGER" property="isEquipment" />
+    <result column="COMPANY_ID" jdbcType="INTEGER" property="companyId" />
+    <result column="TRANSINENT_STOP_REASON" jdbcType="VARCHAR" property="transinentStopReason" />
+    <result column="USE_CERT" jdbcType="INTEGER" property="useCert" />
+    <result column="USE_MOBILE" jdbcType="INTEGER" property="useMobile" />
+    <result column="VERSION_TYPE" jdbcType="INTEGER" property="versionType" />
+    <result column="OPERATOR_TYPE" jdbcType="INTEGER" property="operatorType" />
+    <result column="LAST_ONLINE_TM" jdbcType="TIMESTAMP" property="lastOnlineTm" />
+    <result column="STAT_TM" jdbcType="TIME" property="statTm" />
+    <result column="END_TM" jdbcType="TIME" property="endTm" />
+    <result column="SAFE_ID" jdbcType="INTEGER" property="safeId" />
+    <result column="START_TM" jdbcType="TIME" property="startTm" />
+    <result column="STATE" jdbcType="INTEGER" property="state" />
+    <result column="SAFE_IDS" jdbcType="VARCHAR" property="safeIds" />
+    <result column="PLACE_TYPE" jdbcType="INTEGER" property="placeType" />
+    <result column="DIALING_ID" jdbcType="VARCHAR" property="dialingId" />
+    <result column="OPERATOR" jdbcType="VARCHAR" property="operator" />
+    <result column="OPERATOR_TEL" jdbcType="VARCHAR" property="operatorTel" />
+    <result column="ABBREVIATION" jdbcType="VARCHAR" property="abbreviation" />
+    <result column="REASON" jdbcType="VARCHAR" property="reason" />
+    <result column="IS_ACCEPTANCE" jdbcType="INTEGER" property="isAcceptance" />
+    <result column="ACCEPTANCE_MAN" jdbcType="VARCHAR" property="acceptanceMan" />
+    <result column="ACCEPTANCE_DATE" jdbcType="TIMESTAMP" property="acceptanceDate" />
+    <result column="INSTALLER" jdbcType="VARCHAR" property="installer" />
+    <result column="INSTALL_TM" jdbcType="TIME" property="installTm" />
+    <result column="INSTAILL_TIME" jdbcType="TIMESTAMP" property="instaillTime" />
+    <result column="INSTALL_TIME" jdbcType="TIMESTAMP" property="installTime" />
+    <result column="POINT" jdbcType="VARCHAR" property="point" />
+    <result column="ACT_POINT" jdbcType="VARCHAR" property="actPoint" />
+    <result column="ACT_ADDRESS" jdbcType="VARCHAR" property="actAddress" />
+    <result column="MAINTAIN_STATE" jdbcType="INTEGER" property="maintainState" />
+    <result column="REGAIN_BUSINESS_STATDATE" jdbcType="TIMESTAMP" property="regainBusinessStatdate" />
+    <result column="REGAIN_BUSINESS_ENDDATE" jdbcType="TIMESTAMP" property="regainBusinessEnddate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SERVICE_CODE, SERVICE_NAME, ADDRESS, ZIP, PRINCIPAL, PRINCIPAL_TEL, INFOR_MAN, 
+    INFOR_MAN_TEL, INFOR_MAN_EMAIL, PRODUCER_CODE, STATUS, ENDING_NUMBER, SERVER_NUMBER, 
+    IP, NET_TYPE, PRACTITIONER_NUMBER, NET_MONITOR_DEPARTMENT, NET_MONITOR_MAN, NET_MONITOR_TEL, 
+    AREA_CODE, GET_LOSTCARD_AT, POLICE_ID, REMARK, POLICE_CODE, PUBLIC_NETWORK, ELIGIBIITY, 
+    ECONOMY_TYPE, TYPE, LOCALE_STYLE, CREATE_AT, POLICE_AREA, POLICE_MAN, POLICE_MAN_TEL, 
+    POLICE_MAN_NO, POLICE_NO, IS_NET, VLAN_MODE, IRONMACHINE_COUNT, AUTH_STATE, FORHORT, 
+    STATES, INSTALLFACILITY, BUSINESSDATE, BUSINESSMAN, KEEPPHONE, SAFETYMANUFACTURER, 
+    LEGAL_STATE, REGIST_NUMBER, ALL_TERMINAL, ONLINE_TERMINAL, SHIELD_WEB, SHIELD_WINDOW, 
+    SHIELD_PROGRESS, NATURE, USE_ADMIN, IS_CHECK, IS_EQUIPMENT, COMPANY_ID, TRANSINENT_STOP_REASON, 
+    USE_CERT, USE_MOBILE, VERSION_TYPE, OPERATOR_TYPE, LAST_ONLINE_TM, STAT_TM, END_TM, 
+    SAFE_ID, START_TM, STATE, SAFE_IDS, PLACE_TYPE, DIALING_ID, OPERATOR, OPERATOR_TEL, 
+    ABBREVIATION, REASON, IS_ACCEPTANCE, ACCEPTANCE_MAN, ACCEPTANCE_DATE, INSTALLER, 
+    INSTALL_TM, INSTAILL_TIME, INSTALL_TIME, POINT, ACT_POINT, ACT_ADDRESS, MAINTAIN_STATE, 
+    REGAIN_BUSINESS_STATDATE, REGAIN_BUSINESS_ENDDATE
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from BMC.NETBAR
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExample">
+    delete from BMC.NETBAR
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.Netbar">
+    insert into BMC.NETBAR (ID, SERVICE_CODE, SERVICE_NAME, 
+      ADDRESS, ZIP, PRINCIPAL, 
+      PRINCIPAL_TEL, INFOR_MAN, INFOR_MAN_TEL, 
+      INFOR_MAN_EMAIL, PRODUCER_CODE, STATUS, 
+      ENDING_NUMBER, SERVER_NUMBER, IP, 
+      NET_TYPE, PRACTITIONER_NUMBER, NET_MONITOR_DEPARTMENT, 
+      NET_MONITOR_MAN, NET_MONITOR_TEL, AREA_CODE, 
+      GET_LOSTCARD_AT, POLICE_ID, REMARK, 
+      POLICE_CODE, PUBLIC_NETWORK, ELIGIBIITY, 
+      ECONOMY_TYPE, TYPE, LOCALE_STYLE, 
+      CREATE_AT, POLICE_AREA, POLICE_MAN, 
+      POLICE_MAN_TEL, POLICE_MAN_NO, POLICE_NO, 
+      IS_NET, VLAN_MODE, IRONMACHINE_COUNT, 
+      AUTH_STATE, FORHORT, STATES, 
+      INSTALLFACILITY, BUSINESSDATE, BUSINESSMAN, 
+      KEEPPHONE, SAFETYMANUFACTURER, LEGAL_STATE, 
+      REGIST_NUMBER, ALL_TERMINAL, ONLINE_TERMINAL, 
+      SHIELD_WEB, SHIELD_WINDOW, SHIELD_PROGRESS, 
+      NATURE, USE_ADMIN, IS_CHECK, 
+      IS_EQUIPMENT, COMPANY_ID, TRANSINENT_STOP_REASON, 
+      USE_CERT, USE_MOBILE, VERSION_TYPE, 
+      OPERATOR_TYPE, LAST_ONLINE_TM, STAT_TM, 
+      END_TM, SAFE_ID, START_TM, STATE, 
+      SAFE_IDS, PLACE_TYPE, DIALING_ID, 
+      OPERATOR, OPERATOR_TEL, ABBREVIATION, 
+      REASON, IS_ACCEPTANCE, ACCEPTANCE_MAN, 
+      ACCEPTANCE_DATE, INSTALLER, INSTALL_TM, 
+      INSTAILL_TIME, INSTALL_TIME, POINT, 
+      ACT_POINT, ACT_ADDRESS, MAINTAIN_STATE, 
+      REGAIN_BUSINESS_STATDATE, REGAIN_BUSINESS_ENDDATE
+      )
+    values (#{id,jdbcType=INTEGER}, #{serviceCode,jdbcType=VARCHAR}, #{serviceName,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, #{principal,jdbcType=VARCHAR}, 
+      #{principalTel,jdbcType=VARCHAR}, #{inforMan,jdbcType=VARCHAR}, #{inforManTel,jdbcType=VARCHAR}, 
+      #{inforManEmail,jdbcType=VARCHAR}, #{producerCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{endingNumber,jdbcType=INTEGER}, #{serverNumber,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, 
+      #{netType,jdbcType=VARCHAR}, #{practitionerNumber,jdbcType=INTEGER}, #{netMonitorDepartment,jdbcType=VARCHAR}, 
+      #{netMonitorMan,jdbcType=VARCHAR}, #{netMonitorTel,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{getLostcardAt,jdbcType=TIMESTAMP}, #{policeId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{policeCode,jdbcType=VARCHAR}, #{publicNetwork,jdbcType=VARCHAR}, #{eligibiity,jdbcType=VARCHAR}, 
+      #{economyType,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{localeStyle,jdbcType=INTEGER}, 
+      #{createAt,jdbcType=TIMESTAMP}, #{policeArea,jdbcType=VARCHAR}, #{policeMan,jdbcType=VARCHAR}, 
+      #{policeManTel,jdbcType=VARCHAR}, #{policeManNo,jdbcType=VARCHAR}, #{policeNo,jdbcType=VARCHAR}, 
+      #{isNet,jdbcType=INTEGER}, #{vlanMode,jdbcType=INTEGER}, #{ironmachineCount,jdbcType=INTEGER}, 
+      #{authState,jdbcType=INTEGER}, #{forhort,jdbcType=VARCHAR}, #{states,jdbcType=INTEGER}, 
+      #{installfacility,jdbcType=VARCHAR}, #{businessdate,jdbcType=VARCHAR}, #{businessman,jdbcType=VARCHAR}, 
+      #{keepphone,jdbcType=VARCHAR}, #{safetymanufacturer,jdbcType=VARCHAR}, #{legalState,jdbcType=INTEGER}, 
+      #{registNumber,jdbcType=VARCHAR}, #{allTerminal,jdbcType=INTEGER}, #{onlineTerminal,jdbcType=INTEGER}, 
+      #{shieldWeb,jdbcType=INTEGER}, #{shieldWindow,jdbcType=INTEGER}, #{shieldProgress,jdbcType=INTEGER}, 
+      #{nature,jdbcType=INTEGER}, #{useAdmin,jdbcType=INTEGER}, #{isCheck,jdbcType=INTEGER}, 
+      #{isEquipment,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{transinentStopReason,jdbcType=VARCHAR}, 
+      #{useCert,jdbcType=INTEGER}, #{useMobile,jdbcType=INTEGER}, #{versionType,jdbcType=INTEGER}, 
+      #{operatorType,jdbcType=INTEGER}, #{lastOnlineTm,jdbcType=TIMESTAMP}, #{statTm,jdbcType=TIME}, 
+      #{endTm,jdbcType=TIME}, #{safeId,jdbcType=INTEGER}, #{startTm,jdbcType=TIME}, #{state,jdbcType=INTEGER}, 
+      #{safeIds,jdbcType=VARCHAR}, #{placeType,jdbcType=INTEGER}, #{dialingId,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{operatorTel,jdbcType=VARCHAR}, #{abbreviation,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{isAcceptance,jdbcType=INTEGER}, #{acceptanceMan,jdbcType=VARCHAR}, 
+      #{acceptanceDate,jdbcType=TIMESTAMP}, #{installer,jdbcType=VARCHAR}, #{installTm,jdbcType=TIME}, 
+      #{instaillTime,jdbcType=TIMESTAMP}, #{installTime,jdbcType=TIMESTAMP}, #{point,jdbcType=VARCHAR}, 
+      #{actPoint,jdbcType=VARCHAR}, #{actAddress,jdbcType=VARCHAR}, #{maintainState,jdbcType=INTEGER}, 
+      #{regainBusinessStatdate,jdbcType=TIMESTAMP}, #{regainBusinessEnddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.Netbar">
+    insert into BMC.NETBAR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="serviceName != null">
+        SERVICE_NAME,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="zip != null">
+        ZIP,
+      </if>
+      <if test="principal != null">
+        PRINCIPAL,
+      </if>
+      <if test="principalTel != null">
+        PRINCIPAL_TEL,
+      </if>
+      <if test="inforMan != null">
+        INFOR_MAN,
+      </if>
+      <if test="inforManTel != null">
+        INFOR_MAN_TEL,
+      </if>
+      <if test="inforManEmail != null">
+        INFOR_MAN_EMAIL,
+      </if>
+      <if test="producerCode != null">
+        PRODUCER_CODE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="endingNumber != null">
+        ENDING_NUMBER,
+      </if>
+      <if test="serverNumber != null">
+        SERVER_NUMBER,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="netType != null">
+        NET_TYPE,
+      </if>
+      <if test="practitionerNumber != null">
+        PRACTITIONER_NUMBER,
+      </if>
+      <if test="netMonitorDepartment != null">
+        NET_MONITOR_DEPARTMENT,
+      </if>
+      <if test="netMonitorMan != null">
+        NET_MONITOR_MAN,
+      </if>
+      <if test="netMonitorTel != null">
+        NET_MONITOR_TEL,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="getLostcardAt != null">
+        GET_LOSTCARD_AT,
+      </if>
+      <if test="policeId != null">
+        POLICE_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="policeCode != null">
+        POLICE_CODE,
+      </if>
+      <if test="publicNetwork != null">
+        PUBLIC_NETWORK,
+      </if>
+      <if test="eligibiity != null">
+        ELIGIBIITY,
+      </if>
+      <if test="economyType != null">
+        ECONOMY_TYPE,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="localeStyle != null">
+        LOCALE_STYLE,
+      </if>
+      <if test="createAt != null">
+        CREATE_AT,
+      </if>
+      <if test="policeArea != null">
+        POLICE_AREA,
+      </if>
+      <if test="policeMan != null">
+        POLICE_MAN,
+      </if>
+      <if test="policeManTel != null">
+        POLICE_MAN_TEL,
+      </if>
+      <if test="policeManNo != null">
+        POLICE_MAN_NO,
+      </if>
+      <if test="policeNo != null">
+        POLICE_NO,
+      </if>
+      <if test="isNet != null">
+        IS_NET,
+      </if>
+      <if test="vlanMode != null">
+        VLAN_MODE,
+      </if>
+      <if test="ironmachineCount != null">
+        IRONMACHINE_COUNT,
+      </if>
+      <if test="authState != null">
+        AUTH_STATE,
+      </if>
+      <if test="forhort != null">
+        FORHORT,
+      </if>
+      <if test="states != null">
+        STATES,
+      </if>
+      <if test="installfacility != null">
+        INSTALLFACILITY,
+      </if>
+      <if test="businessdate != null">
+        BUSINESSDATE,
+      </if>
+      <if test="businessman != null">
+        BUSINESSMAN,
+      </if>
+      <if test="keepphone != null">
+        KEEPPHONE,
+      </if>
+      <if test="safetymanufacturer != null">
+        SAFETYMANUFACTURER,
+      </if>
+      <if test="legalState != null">
+        LEGAL_STATE,
+      </if>
+      <if test="registNumber != null">
+        REGIST_NUMBER,
+      </if>
+      <if test="allTerminal != null">
+        ALL_TERMINAL,
+      </if>
+      <if test="onlineTerminal != null">
+        ONLINE_TERMINAL,
+      </if>
+      <if test="shieldWeb != null">
+        SHIELD_WEB,
+      </if>
+      <if test="shieldWindow != null">
+        SHIELD_WINDOW,
+      </if>
+      <if test="shieldProgress != null">
+        SHIELD_PROGRESS,
+      </if>
+      <if test="nature != null">
+        NATURE,
+      </if>
+      <if test="useAdmin != null">
+        USE_ADMIN,
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK,
+      </if>
+      <if test="isEquipment != null">
+        IS_EQUIPMENT,
+      </if>
+      <if test="companyId != null">
+        COMPANY_ID,
+      </if>
+      <if test="transinentStopReason != null">
+        TRANSINENT_STOP_REASON,
+      </if>
+      <if test="useCert != null">
+        USE_CERT,
+      </if>
+      <if test="useMobile != null">
+        USE_MOBILE,
+      </if>
+      <if test="versionType != null">
+        VERSION_TYPE,
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE,
+      </if>
+      <if test="lastOnlineTm != null">
+        LAST_ONLINE_TM,
+      </if>
+      <if test="statTm != null">
+        STAT_TM,
+      </if>
+      <if test="endTm != null">
+        END_TM,
+      </if>
+      <if test="safeId != null">
+        SAFE_ID,
+      </if>
+      <if test="startTm != null">
+        START_TM,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="safeIds != null">
+        SAFE_IDS,
+      </if>
+      <if test="placeType != null">
+        PLACE_TYPE,
+      </if>
+      <if test="dialingId != null">
+        DIALING_ID,
+      </if>
+      <if test="operator != null">
+        OPERATOR,
+      </if>
+      <if test="operatorTel != null">
+        OPERATOR_TEL,
+      </if>
+      <if test="abbreviation != null">
+        ABBREVIATION,
+      </if>
+      <if test="reason != null">
+        REASON,
+      </if>
+      <if test="isAcceptance != null">
+        IS_ACCEPTANCE,
+      </if>
+      <if test="acceptanceMan != null">
+        ACCEPTANCE_MAN,
+      </if>
+      <if test="acceptanceDate != null">
+        ACCEPTANCE_DATE,
+      </if>
+      <if test="installer != null">
+        INSTALLER,
+      </if>
+      <if test="installTm != null">
+        INSTALL_TM,
+      </if>
+      <if test="instaillTime != null">
+        INSTAILL_TIME,
+      </if>
+      <if test="installTime != null">
+        INSTALL_TIME,
+      </if>
+      <if test="point != null">
+        POINT,
+      </if>
+      <if test="actPoint != null">
+        ACT_POINT,
+      </if>
+      <if test="actAddress != null">
+        ACT_ADDRESS,
+      </if>
+      <if test="maintainState != null">
+        MAINTAIN_STATE,
+      </if>
+      <if test="regainBusinessStatdate != null">
+        REGAIN_BUSINESS_STATDATE,
+      </if>
+      <if test="regainBusinessEnddate != null">
+        REGAIN_BUSINESS_ENDDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null">
+        #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="principalTel != null">
+        #{principalTel,jdbcType=VARCHAR},
+      </if>
+      <if test="inforMan != null">
+        #{inforMan,jdbcType=VARCHAR},
+      </if>
+      <if test="inforManTel != null">
+        #{inforManTel,jdbcType=VARCHAR},
+      </if>
+      <if test="inforManEmail != null">
+        #{inforManEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="producerCode != null">
+        #{producerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="endingNumber != null">
+        #{endingNumber,jdbcType=INTEGER},
+      </if>
+      <if test="serverNumber != null">
+        #{serverNumber,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="netType != null">
+        #{netType,jdbcType=VARCHAR},
+      </if>
+      <if test="practitionerNumber != null">
+        #{practitionerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="netMonitorDepartment != null">
+        #{netMonitorDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="netMonitorMan != null">
+        #{netMonitorMan,jdbcType=VARCHAR},
+      </if>
+      <if test="netMonitorTel != null">
+        #{netMonitorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="getLostcardAt != null">
+        #{getLostcardAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policeId != null">
+        #{policeId,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="policeCode != null">
+        #{policeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="publicNetwork != null">
+        #{publicNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="eligibiity != null">
+        #{eligibiity,jdbcType=VARCHAR},
+      </if>
+      <if test="economyType != null">
+        #{economyType,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="localeStyle != null">
+        #{localeStyle,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policeArea != null">
+        #{policeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="policeMan != null">
+        #{policeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="policeManTel != null">
+        #{policeManTel,jdbcType=VARCHAR},
+      </if>
+      <if test="policeManNo != null">
+        #{policeManNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policeNo != null">
+        #{policeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isNet != null">
+        #{isNet,jdbcType=INTEGER},
+      </if>
+      <if test="vlanMode != null">
+        #{vlanMode,jdbcType=INTEGER},
+      </if>
+      <if test="ironmachineCount != null">
+        #{ironmachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="authState != null">
+        #{authState,jdbcType=INTEGER},
+      </if>
+      <if test="forhort != null">
+        #{forhort,jdbcType=VARCHAR},
+      </if>
+      <if test="states != null">
+        #{states,jdbcType=INTEGER},
+      </if>
+      <if test="installfacility != null">
+        #{installfacility,jdbcType=VARCHAR},
+      </if>
+      <if test="businessdate != null">
+        #{businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessman != null">
+        #{businessman,jdbcType=VARCHAR},
+      </if>
+      <if test="keepphone != null">
+        #{keepphone,jdbcType=VARCHAR},
+      </if>
+      <if test="safetymanufacturer != null">
+        #{safetymanufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="legalState != null">
+        #{legalState,jdbcType=INTEGER},
+      </if>
+      <if test="registNumber != null">
+        #{registNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="allTerminal != null">
+        #{allTerminal,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTerminal != null">
+        #{onlineTerminal,jdbcType=INTEGER},
+      </if>
+      <if test="shieldWeb != null">
+        #{shieldWeb,jdbcType=INTEGER},
+      </if>
+      <if test="shieldWindow != null">
+        #{shieldWindow,jdbcType=INTEGER},
+      </if>
+      <if test="shieldProgress != null">
+        #{shieldProgress,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null">
+        #{nature,jdbcType=INTEGER},
+      </if>
+      <if test="useAdmin != null">
+        #{useAdmin,jdbcType=INTEGER},
+      </if>
+      <if test="isCheck != null">
+        #{isCheck,jdbcType=INTEGER},
+      </if>
+      <if test="isEquipment != null">
+        #{isEquipment,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="transinentStopReason != null">
+        #{transinentStopReason,jdbcType=VARCHAR},
+      </if>
+      <if test="useCert != null">
+        #{useCert,jdbcType=INTEGER},
+      </if>
+      <if test="useMobile != null">
+        #{useMobile,jdbcType=INTEGER},
+      </if>
+      <if test="versionType != null">
+        #{versionType,jdbcType=INTEGER},
+      </if>
+      <if test="operatorType != null">
+        #{operatorType,jdbcType=INTEGER},
+      </if>
+      <if test="lastOnlineTm != null">
+        #{lastOnlineTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statTm != null">
+        #{statTm,jdbcType=TIME},
+      </if>
+      <if test="endTm != null">
+        #{endTm,jdbcType=TIME},
+      </if>
+      <if test="safeId != null">
+        #{safeId,jdbcType=INTEGER},
+      </if>
+      <if test="startTm != null">
+        #{startTm,jdbcType=TIME},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="safeIds != null">
+        #{safeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="placeType != null">
+        #{placeType,jdbcType=INTEGER},
+      </if>
+      <if test="dialingId != null">
+        #{dialingId,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorTel != null">
+        #{operatorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="abbreviation != null">
+        #{abbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="isAcceptance != null">
+        #{isAcceptance,jdbcType=INTEGER},
+      </if>
+      <if test="acceptanceMan != null">
+        #{acceptanceMan,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptanceDate != null">
+        #{acceptanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installer != null">
+        #{installer,jdbcType=VARCHAR},
+      </if>
+      <if test="installTm != null">
+        #{installTm,jdbcType=TIME},
+      </if>
+      <if test="instaillTime != null">
+        #{instaillTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installTime != null">
+        #{installTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="point != null">
+        #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="actPoint != null">
+        #{actPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="actAddress != null">
+        #{actAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="maintainState != null">
+        #{maintainState,jdbcType=INTEGER},
+      </if>
+      <if test="regainBusinessStatdate != null">
+        #{regainBusinessStatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regainBusinessEnddate != null">
+        #{regainBusinessEnddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarExample" resultType="java.lang.Long">
+    select count(*) from BMC.NETBAR
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BMC.NETBAR
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceCode != null">
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceName != null">
+        SERVICE_NAME = #{record.serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zip != null">
+        ZIP = #{record.zip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.principal != null">
+        PRINCIPAL = #{record.principal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.principalTel != null">
+        PRINCIPAL_TEL = #{record.principalTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inforMan != null">
+        INFOR_MAN = #{record.inforMan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inforManTel != null">
+        INFOR_MAN_TEL = #{record.inforManTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inforManEmail != null">
+        INFOR_MAN_EMAIL = #{record.inforManEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.producerCode != null">
+        PRODUCER_CODE = #{record.producerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.endingNumber != null">
+        ENDING_NUMBER = #{record.endingNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.serverNumber != null">
+        SERVER_NUMBER = #{record.serverNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.ip != null">
+        IP = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netType != null">
+        NET_TYPE = #{record.netType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.practitionerNumber != null">
+        PRACTITIONER_NUMBER = #{record.practitionerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.netMonitorDepartment != null">
+        NET_MONITOR_DEPARTMENT = #{record.netMonitorDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netMonitorMan != null">
+        NET_MONITOR_MAN = #{record.netMonitorMan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netMonitorTel != null">
+        NET_MONITOR_TEL = #{record.netMonitorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaCode != null">
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.getLostcardAt != null">
+        GET_LOSTCARD_AT = #{record.getLostcardAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.policeId != null">
+        POLICE_ID = #{record.policeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeCode != null">
+        POLICE_CODE = #{record.policeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicNetwork != null">
+        PUBLIC_NETWORK = #{record.publicNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eligibiity != null">
+        ELIGIBIITY = #{record.eligibiity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.economyType != null">
+        ECONOMY_TYPE = #{record.economyType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        TYPE = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.localeStyle != null">
+        LOCALE_STYLE = #{record.localeStyle,jdbcType=INTEGER},
+      </if>
+      <if test="record.createAt != null">
+        CREATE_AT = #{record.createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.policeArea != null">
+        POLICE_AREA = #{record.policeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeMan != null">
+        POLICE_MAN = #{record.policeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeManTel != null">
+        POLICE_MAN_TEL = #{record.policeManTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeManNo != null">
+        POLICE_MAN_NO = #{record.policeManNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policeNo != null">
+        POLICE_NO = #{record.policeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isNet != null">
+        IS_NET = #{record.isNet,jdbcType=INTEGER},
+      </if>
+      <if test="record.vlanMode != null">
+        VLAN_MODE = #{record.vlanMode,jdbcType=INTEGER},
+      </if>
+      <if test="record.ironmachineCount != null">
+        IRONMACHINE_COUNT = #{record.ironmachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.authState != null">
+        AUTH_STATE = #{record.authState,jdbcType=INTEGER},
+      </if>
+      <if test="record.forhort != null">
+        FORHORT = #{record.forhort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.states != null">
+        STATES = #{record.states,jdbcType=INTEGER},
+      </if>
+      <if test="record.installfacility != null">
+        INSTALLFACILITY = #{record.installfacility,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessdate != null">
+        BUSINESSDATE = #{record.businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessman != null">
+        BUSINESSMAN = #{record.businessman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keepphone != null">
+        KEEPPHONE = #{record.keepphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.safetymanufacturer != null">
+        SAFETYMANUFACTURER = #{record.safetymanufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalState != null">
+        LEGAL_STATE = #{record.legalState,jdbcType=INTEGER},
+      </if>
+      <if test="record.registNumber != null">
+        REGIST_NUMBER = #{record.registNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allTerminal != null">
+        ALL_TERMINAL = #{record.allTerminal,jdbcType=INTEGER},
+      </if>
+      <if test="record.onlineTerminal != null">
+        ONLINE_TERMINAL = #{record.onlineTerminal,jdbcType=INTEGER},
+      </if>
+      <if test="record.shieldWeb != null">
+        SHIELD_WEB = #{record.shieldWeb,jdbcType=INTEGER},
+      </if>
+      <if test="record.shieldWindow != null">
+        SHIELD_WINDOW = #{record.shieldWindow,jdbcType=INTEGER},
+      </if>
+      <if test="record.shieldProgress != null">
+        SHIELD_PROGRESS = #{record.shieldProgress,jdbcType=INTEGER},
+      </if>
+      <if test="record.nature != null">
+        NATURE = #{record.nature,jdbcType=INTEGER},
+      </if>
+      <if test="record.useAdmin != null">
+        USE_ADMIN = #{record.useAdmin,jdbcType=INTEGER},
+      </if>
+      <if test="record.isCheck != null">
+        IS_CHECK = #{record.isCheck,jdbcType=INTEGER},
+      </if>
+      <if test="record.isEquipment != null">
+        IS_EQUIPMENT = #{record.isEquipment,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyId != null">
+        COMPANY_ID = #{record.companyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.transinentStopReason != null">
+        TRANSINENT_STOP_REASON = #{record.transinentStopReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useCert != null">
+        USE_CERT = #{record.useCert,jdbcType=INTEGER},
+      </if>
+      <if test="record.useMobile != null">
+        USE_MOBILE = #{record.useMobile,jdbcType=INTEGER},
+      </if>
+      <if test="record.versionType != null">
+        VERSION_TYPE = #{record.versionType,jdbcType=INTEGER},
+      </if>
+      <if test="record.operatorType != null">
+        OPERATOR_TYPE = #{record.operatorType,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastOnlineTm != null">
+        LAST_ONLINE_TM = #{record.lastOnlineTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.statTm != null">
+        STAT_TM = #{record.statTm,jdbcType=TIME},
+      </if>
+      <if test="record.endTm != null">
+        END_TM = #{record.endTm,jdbcType=TIME},
+      </if>
+      <if test="record.safeId != null">
+        SAFE_ID = #{record.safeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.startTm != null">
+        START_TM = #{record.startTm,jdbcType=TIME},
+      </if>
+      <if test="record.state != null">
+        STATE = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.safeIds != null">
+        SAFE_IDS = #{record.safeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.placeType != null">
+        PLACE_TYPE = #{record.placeType,jdbcType=INTEGER},
+      </if>
+      <if test="record.dialingId != null">
+        DIALING_ID = #{record.dialingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operator != null">
+        OPERATOR = #{record.operator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatorTel != null">
+        OPERATOR_TEL = #{record.operatorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abbreviation != null">
+        ABBREVIATION = #{record.abbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reason != null">
+        REASON = #{record.reason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isAcceptance != null">
+        IS_ACCEPTANCE = #{record.isAcceptance,jdbcType=INTEGER},
+      </if>
+      <if test="record.acceptanceMan != null">
+        ACCEPTANCE_MAN = #{record.acceptanceMan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptanceDate != null">
+        ACCEPTANCE_DATE = #{record.acceptanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.installer != null">
+        INSTALLER = #{record.installer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.installTm != null">
+        INSTALL_TM = #{record.installTm,jdbcType=TIME},
+      </if>
+      <if test="record.instaillTime != null">
+        INSTAILL_TIME = #{record.instaillTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.installTime != null">
+        INSTALL_TIME = #{record.installTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.point != null">
+        POINT = #{record.point,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actPoint != null">
+        ACT_POINT = #{record.actPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actAddress != null">
+        ACT_ADDRESS = #{record.actAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maintainState != null">
+        MAINTAIN_STATE = #{record.maintainState,jdbcType=INTEGER},
+      </if>
+      <if test="record.regainBusinessStatdate != null">
+        REGAIN_BUSINESS_STATDATE = #{record.regainBusinessStatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.regainBusinessEnddate != null">
+        REGAIN_BUSINESS_ENDDATE = #{record.regainBusinessEnddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BMC.NETBAR
+    set ID = #{record.id,jdbcType=INTEGER},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      SERVICE_NAME = #{record.serviceName,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      ZIP = #{record.zip,jdbcType=VARCHAR},
+      PRINCIPAL = #{record.principal,jdbcType=VARCHAR},
+      PRINCIPAL_TEL = #{record.principalTel,jdbcType=VARCHAR},
+      INFOR_MAN = #{record.inforMan,jdbcType=VARCHAR},
+      INFOR_MAN_TEL = #{record.inforManTel,jdbcType=VARCHAR},
+      INFOR_MAN_EMAIL = #{record.inforManEmail,jdbcType=VARCHAR},
+      PRODUCER_CODE = #{record.producerCode,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      ENDING_NUMBER = #{record.endingNumber,jdbcType=INTEGER},
+      SERVER_NUMBER = #{record.serverNumber,jdbcType=INTEGER},
+      IP = #{record.ip,jdbcType=VARCHAR},
+      NET_TYPE = #{record.netType,jdbcType=VARCHAR},
+      PRACTITIONER_NUMBER = #{record.practitionerNumber,jdbcType=INTEGER},
+      NET_MONITOR_DEPARTMENT = #{record.netMonitorDepartment,jdbcType=VARCHAR},
+      NET_MONITOR_MAN = #{record.netMonitorMan,jdbcType=VARCHAR},
+      NET_MONITOR_TEL = #{record.netMonitorTel,jdbcType=VARCHAR},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      GET_LOSTCARD_AT = #{record.getLostcardAt,jdbcType=TIMESTAMP},
+      POLICE_ID = #{record.policeId,jdbcType=INTEGER},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      POLICE_CODE = #{record.policeCode,jdbcType=VARCHAR},
+      PUBLIC_NETWORK = #{record.publicNetwork,jdbcType=VARCHAR},
+      ELIGIBIITY = #{record.eligibiity,jdbcType=VARCHAR},
+      ECONOMY_TYPE = #{record.economyType,jdbcType=VARCHAR},
+      TYPE = #{record.type,jdbcType=INTEGER},
+      LOCALE_STYLE = #{record.localeStyle,jdbcType=INTEGER},
+      CREATE_AT = #{record.createAt,jdbcType=TIMESTAMP},
+      POLICE_AREA = #{record.policeArea,jdbcType=VARCHAR},
+      POLICE_MAN = #{record.policeMan,jdbcType=VARCHAR},
+      POLICE_MAN_TEL = #{record.policeManTel,jdbcType=VARCHAR},
+      POLICE_MAN_NO = #{record.policeManNo,jdbcType=VARCHAR},
+      POLICE_NO = #{record.policeNo,jdbcType=VARCHAR},
+      IS_NET = #{record.isNet,jdbcType=INTEGER},
+      VLAN_MODE = #{record.vlanMode,jdbcType=INTEGER},
+      IRONMACHINE_COUNT = #{record.ironmachineCount,jdbcType=INTEGER},
+      AUTH_STATE = #{record.authState,jdbcType=INTEGER},
+      FORHORT = #{record.forhort,jdbcType=VARCHAR},
+      STATES = #{record.states,jdbcType=INTEGER},
+      INSTALLFACILITY = #{record.installfacility,jdbcType=VARCHAR},
+      BUSINESSDATE = #{record.businessdate,jdbcType=VARCHAR},
+      BUSINESSMAN = #{record.businessman,jdbcType=VARCHAR},
+      KEEPPHONE = #{record.keepphone,jdbcType=VARCHAR},
+      SAFETYMANUFACTURER = #{record.safetymanufacturer,jdbcType=VARCHAR},
+      LEGAL_STATE = #{record.legalState,jdbcType=INTEGER},
+      REGIST_NUMBER = #{record.registNumber,jdbcType=VARCHAR},
+      ALL_TERMINAL = #{record.allTerminal,jdbcType=INTEGER},
+      ONLINE_TERMINAL = #{record.onlineTerminal,jdbcType=INTEGER},
+      SHIELD_WEB = #{record.shieldWeb,jdbcType=INTEGER},
+      SHIELD_WINDOW = #{record.shieldWindow,jdbcType=INTEGER},
+      SHIELD_PROGRESS = #{record.shieldProgress,jdbcType=INTEGER},
+      NATURE = #{record.nature,jdbcType=INTEGER},
+      USE_ADMIN = #{record.useAdmin,jdbcType=INTEGER},
+      IS_CHECK = #{record.isCheck,jdbcType=INTEGER},
+      IS_EQUIPMENT = #{record.isEquipment,jdbcType=INTEGER},
+      COMPANY_ID = #{record.companyId,jdbcType=INTEGER},
+      TRANSINENT_STOP_REASON = #{record.transinentStopReason,jdbcType=VARCHAR},
+      USE_CERT = #{record.useCert,jdbcType=INTEGER},
+      USE_MOBILE = #{record.useMobile,jdbcType=INTEGER},
+      VERSION_TYPE = #{record.versionType,jdbcType=INTEGER},
+      OPERATOR_TYPE = #{record.operatorType,jdbcType=INTEGER},
+      LAST_ONLINE_TM = #{record.lastOnlineTm,jdbcType=TIMESTAMP},
+      STAT_TM = #{record.statTm,jdbcType=TIME},
+      END_TM = #{record.endTm,jdbcType=TIME},
+      SAFE_ID = #{record.safeId,jdbcType=INTEGER},
+      START_TM = #{record.startTm,jdbcType=TIME},
+      STATE = #{record.state,jdbcType=INTEGER},
+      SAFE_IDS = #{record.safeIds,jdbcType=VARCHAR},
+      PLACE_TYPE = #{record.placeType,jdbcType=INTEGER},
+      DIALING_ID = #{record.dialingId,jdbcType=VARCHAR},
+      OPERATOR = #{record.operator,jdbcType=VARCHAR},
+      OPERATOR_TEL = #{record.operatorTel,jdbcType=VARCHAR},
+      ABBREVIATION = #{record.abbreviation,jdbcType=VARCHAR},
+      REASON = #{record.reason,jdbcType=VARCHAR},
+      IS_ACCEPTANCE = #{record.isAcceptance,jdbcType=INTEGER},
+      ACCEPTANCE_MAN = #{record.acceptanceMan,jdbcType=VARCHAR},
+      ACCEPTANCE_DATE = #{record.acceptanceDate,jdbcType=TIMESTAMP},
+      INSTALLER = #{record.installer,jdbcType=VARCHAR},
+      INSTALL_TM = #{record.installTm,jdbcType=TIME},
+      INSTAILL_TIME = #{record.instaillTime,jdbcType=TIMESTAMP},
+      INSTALL_TIME = #{record.installTime,jdbcType=TIMESTAMP},
+      POINT = #{record.point,jdbcType=VARCHAR},
+      ACT_POINT = #{record.actPoint,jdbcType=VARCHAR},
+      ACT_ADDRESS = #{record.actAddress,jdbcType=VARCHAR},
+      MAINTAIN_STATE = #{record.maintainState,jdbcType=INTEGER},
+      REGAIN_BUSINESS_STATDATE = #{record.regainBusinessStatdate,jdbcType=TIMESTAMP},
+      REGAIN_BUSINESS_ENDDATE = #{record.regainBusinessEnddate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.Netbar">
+    update BMC.NETBAR
+    <set>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null">
+        SERVICE_NAME = #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        ZIP = #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="principalTel != null">
+        PRINCIPAL_TEL = #{principalTel,jdbcType=VARCHAR},
+      </if>
+      <if test="inforMan != null">
+        INFOR_MAN = #{inforMan,jdbcType=VARCHAR},
+      </if>
+      <if test="inforManTel != null">
+        INFOR_MAN_TEL = #{inforManTel,jdbcType=VARCHAR},
+      </if>
+      <if test="inforManEmail != null">
+        INFOR_MAN_EMAIL = #{inforManEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="producerCode != null">
+        PRODUCER_CODE = #{producerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="endingNumber != null">
+        ENDING_NUMBER = #{endingNumber,jdbcType=INTEGER},
+      </if>
+      <if test="serverNumber != null">
+        SERVER_NUMBER = #{serverNumber,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="netType != null">
+        NET_TYPE = #{netType,jdbcType=VARCHAR},
+      </if>
+      <if test="practitionerNumber != null">
+        PRACTITIONER_NUMBER = #{practitionerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="netMonitorDepartment != null">
+        NET_MONITOR_DEPARTMENT = #{netMonitorDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="netMonitorMan != null">
+        NET_MONITOR_MAN = #{netMonitorMan,jdbcType=VARCHAR},
+      </if>
+      <if test="netMonitorTel != null">
+        NET_MONITOR_TEL = #{netMonitorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="getLostcardAt != null">
+        GET_LOSTCARD_AT = #{getLostcardAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policeId != null">
+        POLICE_ID = #{policeId,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="policeCode != null">
+        POLICE_CODE = #{policeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="publicNetwork != null">
+        PUBLIC_NETWORK = #{publicNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="eligibiity != null">
+        ELIGIBIITY = #{eligibiity,jdbcType=VARCHAR},
+      </if>
+      <if test="economyType != null">
+        ECONOMY_TYPE = #{economyType,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="localeStyle != null">
+        LOCALE_STYLE = #{localeStyle,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        CREATE_AT = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policeArea != null">
+        POLICE_AREA = #{policeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="policeMan != null">
+        POLICE_MAN = #{policeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="policeManTel != null">
+        POLICE_MAN_TEL = #{policeManTel,jdbcType=VARCHAR},
+      </if>
+      <if test="policeManNo != null">
+        POLICE_MAN_NO = #{policeManNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policeNo != null">
+        POLICE_NO = #{policeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isNet != null">
+        IS_NET = #{isNet,jdbcType=INTEGER},
+      </if>
+      <if test="vlanMode != null">
+        VLAN_MODE = #{vlanMode,jdbcType=INTEGER},
+      </if>
+      <if test="ironmachineCount != null">
+        IRONMACHINE_COUNT = #{ironmachineCount,jdbcType=INTEGER},
+      </if>
+      <if test="authState != null">
+        AUTH_STATE = #{authState,jdbcType=INTEGER},
+      </if>
+      <if test="forhort != null">
+        FORHORT = #{forhort,jdbcType=VARCHAR},
+      </if>
+      <if test="states != null">
+        STATES = #{states,jdbcType=INTEGER},
+      </if>
+      <if test="installfacility != null">
+        INSTALLFACILITY = #{installfacility,jdbcType=VARCHAR},
+      </if>
+      <if test="businessdate != null">
+        BUSINESSDATE = #{businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessman != null">
+        BUSINESSMAN = #{businessman,jdbcType=VARCHAR},
+      </if>
+      <if test="keepphone != null">
+        KEEPPHONE = #{keepphone,jdbcType=VARCHAR},
+      </if>
+      <if test="safetymanufacturer != null">
+        SAFETYMANUFACTURER = #{safetymanufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="legalState != null">
+        LEGAL_STATE = #{legalState,jdbcType=INTEGER},
+      </if>
+      <if test="registNumber != null">
+        REGIST_NUMBER = #{registNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="allTerminal != null">
+        ALL_TERMINAL = #{allTerminal,jdbcType=INTEGER},
+      </if>
+      <if test="onlineTerminal != null">
+        ONLINE_TERMINAL = #{onlineTerminal,jdbcType=INTEGER},
+      </if>
+      <if test="shieldWeb != null">
+        SHIELD_WEB = #{shieldWeb,jdbcType=INTEGER},
+      </if>
+      <if test="shieldWindow != null">
+        SHIELD_WINDOW = #{shieldWindow,jdbcType=INTEGER},
+      </if>
+      <if test="shieldProgress != null">
+        SHIELD_PROGRESS = #{shieldProgress,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null">
+        NATURE = #{nature,jdbcType=INTEGER},
+      </if>
+      <if test="useAdmin != null">
+        USE_ADMIN = #{useAdmin,jdbcType=INTEGER},
+      </if>
+      <if test="isCheck != null">
+        IS_CHECK = #{isCheck,jdbcType=INTEGER},
+      </if>
+      <if test="isEquipment != null">
+        IS_EQUIPMENT = #{isEquipment,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        COMPANY_ID = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="transinentStopReason != null">
+        TRANSINENT_STOP_REASON = #{transinentStopReason,jdbcType=VARCHAR},
+      </if>
+      <if test="useCert != null">
+        USE_CERT = #{useCert,jdbcType=INTEGER},
+      </if>
+      <if test="useMobile != null">
+        USE_MOBILE = #{useMobile,jdbcType=INTEGER},
+      </if>
+      <if test="versionType != null">
+        VERSION_TYPE = #{versionType,jdbcType=INTEGER},
+      </if>
+      <if test="operatorType != null">
+        OPERATOR_TYPE = #{operatorType,jdbcType=INTEGER},
+      </if>
+      <if test="lastOnlineTm != null">
+        LAST_ONLINE_TM = #{lastOnlineTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statTm != null">
+        STAT_TM = #{statTm,jdbcType=TIME},
+      </if>
+      <if test="endTm != null">
+        END_TM = #{endTm,jdbcType=TIME},
+      </if>
+      <if test="safeId != null">
+        SAFE_ID = #{safeId,jdbcType=INTEGER},
+      </if>
+      <if test="startTm != null">
+        START_TM = #{startTm,jdbcType=TIME},
+      </if>
+      <if test="state != null">
+        STATE = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="safeIds != null">
+        SAFE_IDS = #{safeIds,jdbcType=VARCHAR},
+      </if>
+      <if test="placeType != null">
+        PLACE_TYPE = #{placeType,jdbcType=INTEGER},
+      </if>
+      <if test="dialingId != null">
+        DIALING_ID = #{dialingId,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorTel != null">
+        OPERATOR_TEL = #{operatorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="abbreviation != null">
+        ABBREVIATION = #{abbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null">
+        REASON = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="isAcceptance != null">
+        IS_ACCEPTANCE = #{isAcceptance,jdbcType=INTEGER},
+      </if>
+      <if test="acceptanceMan != null">
+        ACCEPTANCE_MAN = #{acceptanceMan,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptanceDate != null">
+        ACCEPTANCE_DATE = #{acceptanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installer != null">
+        INSTALLER = #{installer,jdbcType=VARCHAR},
+      </if>
+      <if test="installTm != null">
+        INSTALL_TM = #{installTm,jdbcType=TIME},
+      </if>
+      <if test="instaillTime != null">
+        INSTAILL_TIME = #{instaillTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="installTime != null">
+        INSTALL_TIME = #{installTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="point != null">
+        POINT = #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="actPoint != null">
+        ACT_POINT = #{actPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="actAddress != null">
+        ACT_ADDRESS = #{actAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="maintainState != null">
+        MAINTAIN_STATE = #{maintainState,jdbcType=INTEGER},
+      </if>
+      <if test="regainBusinessStatdate != null">
+        REGAIN_BUSINESS_STATDATE = #{regainBusinessStatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regainBusinessEnddate != null">
+        REGAIN_BUSINESS_ENDDATE = #{regainBusinessEnddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.Netbar">
+    update BMC.NETBAR
+    set SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      SERVICE_NAME = #{serviceName,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      ZIP = #{zip,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      PRINCIPAL_TEL = #{principalTel,jdbcType=VARCHAR},
+      INFOR_MAN = #{inforMan,jdbcType=VARCHAR},
+      INFOR_MAN_TEL = #{inforManTel,jdbcType=VARCHAR},
+      INFOR_MAN_EMAIL = #{inforManEmail,jdbcType=VARCHAR},
+      PRODUCER_CODE = #{producerCode,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      ENDING_NUMBER = #{endingNumber,jdbcType=INTEGER},
+      SERVER_NUMBER = #{serverNumber,jdbcType=INTEGER},
+      IP = #{ip,jdbcType=VARCHAR},
+      NET_TYPE = #{netType,jdbcType=VARCHAR},
+      PRACTITIONER_NUMBER = #{practitionerNumber,jdbcType=INTEGER},
+      NET_MONITOR_DEPARTMENT = #{netMonitorDepartment,jdbcType=VARCHAR},
+      NET_MONITOR_MAN = #{netMonitorMan,jdbcType=VARCHAR},
+      NET_MONITOR_TEL = #{netMonitorTel,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      GET_LOSTCARD_AT = #{getLostcardAt,jdbcType=TIMESTAMP},
+      POLICE_ID = #{policeId,jdbcType=INTEGER},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      POLICE_CODE = #{policeCode,jdbcType=VARCHAR},
+      PUBLIC_NETWORK = #{publicNetwork,jdbcType=VARCHAR},
+      ELIGIBIITY = #{eligibiity,jdbcType=VARCHAR},
+      ECONOMY_TYPE = #{economyType,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=INTEGER},
+      LOCALE_STYLE = #{localeStyle,jdbcType=INTEGER},
+      CREATE_AT = #{createAt,jdbcType=TIMESTAMP},
+      POLICE_AREA = #{policeArea,jdbcType=VARCHAR},
+      POLICE_MAN = #{policeMan,jdbcType=VARCHAR},
+      POLICE_MAN_TEL = #{policeManTel,jdbcType=VARCHAR},
+      POLICE_MAN_NO = #{policeManNo,jdbcType=VARCHAR},
+      POLICE_NO = #{policeNo,jdbcType=VARCHAR},
+      IS_NET = #{isNet,jdbcType=INTEGER},
+      VLAN_MODE = #{vlanMode,jdbcType=INTEGER},
+      IRONMACHINE_COUNT = #{ironmachineCount,jdbcType=INTEGER},
+      AUTH_STATE = #{authState,jdbcType=INTEGER},
+      FORHORT = #{forhort,jdbcType=VARCHAR},
+      STATES = #{states,jdbcType=INTEGER},
+      INSTALLFACILITY = #{installfacility,jdbcType=VARCHAR},
+      BUSINESSDATE = #{businessdate,jdbcType=VARCHAR},
+      BUSINESSMAN = #{businessman,jdbcType=VARCHAR},
+      KEEPPHONE = #{keepphone,jdbcType=VARCHAR},
+      SAFETYMANUFACTURER = #{safetymanufacturer,jdbcType=VARCHAR},
+      LEGAL_STATE = #{legalState,jdbcType=INTEGER},
+      REGIST_NUMBER = #{registNumber,jdbcType=VARCHAR},
+      ALL_TERMINAL = #{allTerminal,jdbcType=INTEGER},
+      ONLINE_TERMINAL = #{onlineTerminal,jdbcType=INTEGER},
+      SHIELD_WEB = #{shieldWeb,jdbcType=INTEGER},
+      SHIELD_WINDOW = #{shieldWindow,jdbcType=INTEGER},
+      SHIELD_PROGRESS = #{shieldProgress,jdbcType=INTEGER},
+      NATURE = #{nature,jdbcType=INTEGER},
+      USE_ADMIN = #{useAdmin,jdbcType=INTEGER},
+      IS_CHECK = #{isCheck,jdbcType=INTEGER},
+      IS_EQUIPMENT = #{isEquipment,jdbcType=INTEGER},
+      COMPANY_ID = #{companyId,jdbcType=INTEGER},
+      TRANSINENT_STOP_REASON = #{transinentStopReason,jdbcType=VARCHAR},
+      USE_CERT = #{useCert,jdbcType=INTEGER},
+      USE_MOBILE = #{useMobile,jdbcType=INTEGER},
+      VERSION_TYPE = #{versionType,jdbcType=INTEGER},
+      OPERATOR_TYPE = #{operatorType,jdbcType=INTEGER},
+      LAST_ONLINE_TM = #{lastOnlineTm,jdbcType=TIMESTAMP},
+      STAT_TM = #{statTm,jdbcType=TIME},
+      END_TM = #{endTm,jdbcType=TIME},
+      SAFE_ID = #{safeId,jdbcType=INTEGER},
+      START_TM = #{startTm,jdbcType=TIME},
+      STATE = #{state,jdbcType=INTEGER},
+      SAFE_IDS = #{safeIds,jdbcType=VARCHAR},
+      PLACE_TYPE = #{placeType,jdbcType=INTEGER},
+      DIALING_ID = #{dialingId,jdbcType=VARCHAR},
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      OPERATOR_TEL = #{operatorTel,jdbcType=VARCHAR},
+      ABBREVIATION = #{abbreviation,jdbcType=VARCHAR},
+      REASON = #{reason,jdbcType=VARCHAR},
+      IS_ACCEPTANCE = #{isAcceptance,jdbcType=INTEGER},
+      ACCEPTANCE_MAN = #{acceptanceMan,jdbcType=VARCHAR},
+      ACCEPTANCE_DATE = #{acceptanceDate,jdbcType=TIMESTAMP},
+      INSTALLER = #{installer,jdbcType=VARCHAR},
+      INSTALL_TM = #{installTm,jdbcType=TIME},
+      INSTAILL_TIME = #{instaillTime,jdbcType=TIMESTAMP},
+      INSTALL_TIME = #{installTime,jdbcType=TIMESTAMP},
+      POINT = #{point,jdbcType=VARCHAR},
+      ACT_POINT = #{actPoint,jdbcType=VARCHAR},
+      ACT_ADDRESS = #{actAddress,jdbcType=VARCHAR},
+      MAINTAIN_STATE = #{maintainState,jdbcType=INTEGER},
+      REGAIN_BUSINESS_STATDATE = #{regainBusinessStatdate,jdbcType=TIMESTAMP},
+      REGAIN_BUSINESS_ENDDATE = #{regainBusinessEnddate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

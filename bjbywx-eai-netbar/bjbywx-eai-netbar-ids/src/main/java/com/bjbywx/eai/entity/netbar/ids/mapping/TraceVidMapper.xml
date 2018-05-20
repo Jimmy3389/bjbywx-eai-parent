@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.ids.mapping.TraceVidMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.ids.domain.TraceVid">
+    <id column="TRACE_ID" jdbcType="BIGINT" property="traceId" />
+    <id column="ID_TYPE" jdbcType="INTEGER" property="idType" />
+    <id column="ID_CODE" jdbcType="VARCHAR" property="idCode" />
+    <result column="SESSION_ID" jdbcType="VARCHAR" property="sessionId" />
+    <result column="LOGIN_AT" jdbcType="TIMESTAMP" property="loginAt" />
+    <result column="LOGOUT_AT" jdbcType="TIMESTAMP" property="logoutAt" />
+    <result column="ONLINE_AT" jdbcType="TIMESTAMP" property="onlineAt" />
+    <result column="OFFLINE_AT" jdbcType="TIMESTAMP" property="offlineAt" />
+    <result column="ID_NAME" jdbcType="VARCHAR" property="idName" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="SERVICE_WAN_IP" jdbcType="VARCHAR" property="serviceWanIp" />
+    <result column="SERVICE_LAN_IP" jdbcType="VARCHAR" property="serviceLanIp" />
+    <result column="SERVICE_MAC" jdbcType="VARCHAR" property="serviceMac" />
+    <result column="HOST_NAME" jdbcType="VARCHAR" property="hostName" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="RESERVE1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="SERVER_IP" jdbcType="VARCHAR" property="serverIp" />
+    <result column="SCAN_TAG" jdbcType="INTEGER" property="scanTag" />
+    <result column="CREATE_ACCOUNT_FLAG" jdbcType="INTEGER" property="createAccountFlag" />
+    <result column="NATION" jdbcType="VARCHAR" property="nation" />
+    <result column="SOURCE" jdbcType="INTEGER" property="source" />
+    <result column="UPDATE_ZIP_VERSION" jdbcType="VARCHAR" property="updateZipVersion" />
+    <result column="CLIENT_VERSION" jdbcType="VARCHAR" property="clientVersion" />
+    <result column="USER_NO" jdbcType="VARCHAR" property="userNo" />
+    <result column="DATA_TAG" jdbcType="INTEGER" property="dataTag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TRACE_ID, ID_TYPE, ID_CODE, SESSION_ID, LOGIN_AT, LOGOUT_AT, ONLINE_AT, OFFLINE_AT, 
+    ID_NAME, AREA_CODE, SERVICE_CODE, SERVICE_WAN_IP, SERVICE_LAN_IP, SERVICE_MAC, HOST_NAME, 
+    STATUS, RESERVE1, SERVER_IP, SCAN_TAG, CREATE_ACCOUNT_FLAG, NATION, SOURCE, UPDATE_ZIP_VERSION, 
+    CLIENT_VERSION, USER_NO, DATA_TAG
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVidExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IDS.TRACE_VID_2018_9
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVidKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IDS.TRACE_VID_2018_9
+    where TRACE_ID = #{traceId,jdbcType=BIGINT}
+      and ID_TYPE = #{idType,jdbcType=INTEGER}
+      and ID_CODE = #{idCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVidKey">
+    delete from IDS.TRACE_VID_2018_9
+    where TRACE_ID = #{traceId,jdbcType=BIGINT}
+      and ID_TYPE = #{idType,jdbcType=INTEGER}
+      and ID_CODE = #{idCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVidExample">
+    delete from IDS.TRACE_VID_2018_9
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVid">
+    insert into IDS.TRACE_VID_2018_9 (TRACE_ID, ID_TYPE, ID_CODE, 
+      SESSION_ID, LOGIN_AT, LOGOUT_AT, 
+      ONLINE_AT, OFFLINE_AT, ID_NAME, 
+      AREA_CODE, SERVICE_CODE, SERVICE_WAN_IP, 
+      SERVICE_LAN_IP, SERVICE_MAC, HOST_NAME, 
+      STATUS, RESERVE1, SERVER_IP, 
+      SCAN_TAG, CREATE_ACCOUNT_FLAG, NATION, 
+      SOURCE, UPDATE_ZIP_VERSION, CLIENT_VERSION, 
+      USER_NO, DATA_TAG)
+    values (#{traceId,jdbcType=BIGINT}, #{idType,jdbcType=INTEGER}, #{idCode,jdbcType=VARCHAR}, 
+      #{sessionId,jdbcType=VARCHAR}, #{loginAt,jdbcType=TIMESTAMP}, #{logoutAt,jdbcType=TIMESTAMP}, 
+      #{onlineAt,jdbcType=TIMESTAMP}, #{offlineAt,jdbcType=TIMESTAMP}, #{idName,jdbcType=VARCHAR}, 
+      #{areaCode,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, #{serviceWanIp,jdbcType=VARCHAR}, 
+      #{serviceLanIp,jdbcType=VARCHAR}, #{serviceMac,jdbcType=VARCHAR}, #{hostName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, #{serverIp,jdbcType=VARCHAR}, 
+      #{scanTag,jdbcType=INTEGER}, #{createAccountFlag,jdbcType=INTEGER}, #{nation,jdbcType=VARCHAR}, 
+      #{source,jdbcType=INTEGER}, #{updateZipVersion,jdbcType=VARCHAR}, #{clientVersion,jdbcType=VARCHAR}, 
+      #{userNo,jdbcType=VARCHAR}, #{dataTag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVid">
+    insert into IDS.TRACE_VID_2018_9
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="traceId != null">
+        TRACE_ID,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idCode != null">
+        ID_CODE,
+      </if>
+      <if test="sessionId != null">
+        SESSION_ID,
+      </if>
+      <if test="loginAt != null">
+        LOGIN_AT,
+      </if>
+      <if test="logoutAt != null">
+        LOGOUT_AT,
+      </if>
+      <if test="onlineAt != null">
+        ONLINE_AT,
+      </if>
+      <if test="offlineAt != null">
+        OFFLINE_AT,
+      </if>
+      <if test="idName != null">
+        ID_NAME,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="serviceWanIp != null">
+        SERVICE_WAN_IP,
+      </if>
+      <if test="serviceLanIp != null">
+        SERVICE_LAN_IP,
+      </if>
+      <if test="serviceMac != null">
+        SERVICE_MAC,
+      </if>
+      <if test="hostName != null">
+        HOST_NAME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1,
+      </if>
+      <if test="serverIp != null">
+        SERVER_IP,
+      </if>
+      <if test="scanTag != null">
+        SCAN_TAG,
+      </if>
+      <if test="createAccountFlag != null">
+        CREATE_ACCOUNT_FLAG,
+      </if>
+      <if test="nation != null">
+        NATION,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="updateZipVersion != null">
+        UPDATE_ZIP_VERSION,
+      </if>
+      <if test="clientVersion != null">
+        CLIENT_VERSION,
+      </if>
+      <if test="userNo != null">
+        USER_NO,
+      </if>
+      <if test="dataTag != null">
+        DATA_TAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="traceId != null">
+        #{traceId,jdbcType=BIGINT},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=INTEGER},
+      </if>
+      <if test="idCode != null">
+        #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sessionId != null">
+        #{sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAt != null">
+        #{loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutAt != null">
+        #{logoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineAt != null">
+        #{onlineAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlineAt != null">
+        #{offlineAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idName != null">
+        #{idName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWanIp != null">
+        #{serviceWanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLanIp != null">
+        #{serviceLanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceMac != null">
+        #{serviceMac,jdbcType=VARCHAR},
+      </if>
+      <if test="hostName != null">
+        #{hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="serverIp != null">
+        #{serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="scanTag != null">
+        #{scanTag,jdbcType=INTEGER},
+      </if>
+      <if test="createAccountFlag != null">
+        #{createAccountFlag,jdbcType=INTEGER},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="updateZipVersion != null">
+        #{updateZipVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="clientVersion != null">
+        #{clientVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTag != null">
+        #{dataTag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVidExample" resultType="java.lang.Long">
+    select count(*) from IDS.TRACE_VID_2018_9
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update IDS.TRACE_VID_2018_9
+    <set>
+      <if test="record.traceId != null">
+        TRACE_ID = #{record.traceId,jdbcType=BIGINT},
+      </if>
+      <if test="record.idType != null">
+        ID_TYPE = #{record.idType,jdbcType=INTEGER},
+      </if>
+      <if test="record.idCode != null">
+        ID_CODE = #{record.idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sessionId != null">
+        SESSION_ID = #{record.sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginAt != null">
+        LOGIN_AT = #{record.loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logoutAt != null">
+        LOGOUT_AT = #{record.logoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.onlineAt != null">
+        ONLINE_AT = #{record.onlineAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.offlineAt != null">
+        OFFLINE_AT = #{record.offlineAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.idName != null">
+        ID_NAME = #{record.idName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaCode != null">
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceCode != null">
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceWanIp != null">
+        SERVICE_WAN_IP = #{record.serviceWanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceLanIp != null">
+        SERVICE_LAN_IP = #{record.serviceLanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceMac != null">
+        SERVICE_MAC = #{record.serviceMac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hostName != null">
+        HOST_NAME = #{record.hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.reserve1 != null">
+        RESERVE1 = #{record.reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serverIp != null">
+        SERVER_IP = #{record.serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scanTag != null">
+        SCAN_TAG = #{record.scanTag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createAccountFlag != null">
+        CREATE_ACCOUNT_FLAG = #{record.createAccountFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.nation != null">
+        NATION = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null">
+        SOURCE = #{record.source,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateZipVersion != null">
+        UPDATE_ZIP_VERSION = #{record.updateZipVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clientVersion != null">
+        CLIENT_VERSION = #{record.clientVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userNo != null">
+        USER_NO = #{record.userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataTag != null">
+        DATA_TAG = #{record.dataTag,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update IDS.TRACE_VID_2018_9
+    set TRACE_ID = #{record.traceId,jdbcType=BIGINT},
+      ID_TYPE = #{record.idType,jdbcType=INTEGER},
+      ID_CODE = #{record.idCode,jdbcType=VARCHAR},
+      SESSION_ID = #{record.sessionId,jdbcType=VARCHAR},
+      LOGIN_AT = #{record.loginAt,jdbcType=TIMESTAMP},
+      LOGOUT_AT = #{record.logoutAt,jdbcType=TIMESTAMP},
+      ONLINE_AT = #{record.onlineAt,jdbcType=TIMESTAMP},
+      OFFLINE_AT = #{record.offlineAt,jdbcType=TIMESTAMP},
+      ID_NAME = #{record.idName,jdbcType=VARCHAR},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      SERVICE_WAN_IP = #{record.serviceWanIp,jdbcType=VARCHAR},
+      SERVICE_LAN_IP = #{record.serviceLanIp,jdbcType=VARCHAR},
+      SERVICE_MAC = #{record.serviceMac,jdbcType=VARCHAR},
+      HOST_NAME = #{record.hostName,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      RESERVE1 = #{record.reserve1,jdbcType=VARCHAR},
+      SERVER_IP = #{record.serverIp,jdbcType=VARCHAR},
+      SCAN_TAG = #{record.scanTag,jdbcType=INTEGER},
+      CREATE_ACCOUNT_FLAG = #{record.createAccountFlag,jdbcType=INTEGER},
+      NATION = #{record.nation,jdbcType=VARCHAR},
+      SOURCE = #{record.source,jdbcType=INTEGER},
+      UPDATE_ZIP_VERSION = #{record.updateZipVersion,jdbcType=VARCHAR},
+      CLIENT_VERSION = #{record.clientVersion,jdbcType=VARCHAR},
+      USER_NO = #{record.userNo,jdbcType=VARCHAR},
+      DATA_TAG = #{record.dataTag,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVid">
+    update IDS.TRACE_VID_2018_9
+    <set>
+      <if test="sessionId != null">
+        SESSION_ID = #{sessionId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAt != null">
+        LOGIN_AT = #{loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutAt != null">
+        LOGOUT_AT = #{logoutAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineAt != null">
+        ONLINE_AT = #{onlineAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlineAt != null">
+        OFFLINE_AT = #{offlineAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idName != null">
+        ID_NAME = #{idName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceWanIp != null">
+        SERVICE_WAN_IP = #{serviceWanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLanIp != null">
+        SERVICE_LAN_IP = #{serviceLanIp,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceMac != null">
+        SERVICE_MAC = #{serviceMac,jdbcType=VARCHAR},
+      </if>
+      <if test="hostName != null">
+        HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserve1 != null">
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="serverIp != null">
+        SERVER_IP = #{serverIp,jdbcType=VARCHAR},
+      </if>
+      <if test="scanTag != null">
+        SCAN_TAG = #{scanTag,jdbcType=INTEGER},
+      </if>
+      <if test="createAccountFlag != null">
+        CREATE_ACCOUNT_FLAG = #{createAccountFlag,jdbcType=INTEGER},
+      </if>
+      <if test="nation != null">
+        NATION = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="updateZipVersion != null">
+        UPDATE_ZIP_VERSION = #{updateZipVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="clientVersion != null">
+        CLIENT_VERSION = #{clientVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        USER_NO = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTag != null">
+        DATA_TAG = #{dataTag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where TRACE_ID = #{traceId,jdbcType=BIGINT}
+      and ID_TYPE = #{idType,jdbcType=INTEGER}
+      and ID_CODE = #{idCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.TraceVid">
+    update IDS.TRACE_VID_2018_9
+    set SESSION_ID = #{sessionId,jdbcType=VARCHAR},
+      LOGIN_AT = #{loginAt,jdbcType=TIMESTAMP},
+      LOGOUT_AT = #{logoutAt,jdbcType=TIMESTAMP},
+      ONLINE_AT = #{onlineAt,jdbcType=TIMESTAMP},
+      OFFLINE_AT = #{offlineAt,jdbcType=TIMESTAMP},
+      ID_NAME = #{idName,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      SERVICE_WAN_IP = #{serviceWanIp,jdbcType=VARCHAR},
+      SERVICE_LAN_IP = #{serviceLanIp,jdbcType=VARCHAR},
+      SERVICE_MAC = #{serviceMac,jdbcType=VARCHAR},
+      HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      SERVER_IP = #{serverIp,jdbcType=VARCHAR},
+      SCAN_TAG = #{scanTag,jdbcType=INTEGER},
+      CREATE_ACCOUNT_FLAG = #{createAccountFlag,jdbcType=INTEGER},
+      NATION = #{nation,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=INTEGER},
+      UPDATE_ZIP_VERSION = #{updateZipVersion,jdbcType=VARCHAR},
+      CLIENT_VERSION = #{clientVersion,jdbcType=VARCHAR},
+      USER_NO = #{userNo,jdbcType=VARCHAR},
+      DATA_TAG = #{dataTag,jdbcType=INTEGER}
+    where TRACE_ID = #{traceId,jdbcType=BIGINT}
+      and ID_TYPE = #{idType,jdbcType=INTEGER}
+      and ID_CODE = #{idCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

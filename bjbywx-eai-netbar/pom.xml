@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bjbywx.eai</groupId>
+		<artifactId>bjbywx-eai-parent</artifactId>
+		<version>1.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bjbywx-eai-netbar</artifactId>
+	<packaging>pom</packaging>
+	<name>Beijing BoYiWangXun Integrated Management NetBar Proxy For Java</name>
+	<description>Beijing BoYiWangXun Integrated Management NetBar Proxy For Java</description>
+	<modules>
+		<module>bjbywx-eai-netbar-common</module>
+		<module>bjbywx-eai-netbar-bmc</module>
+		<module>bjbywx-eai-netbar-ids</module>
+		<module>bjbywx-eai-netbar-rts</module>
+	</modules>
+</project>

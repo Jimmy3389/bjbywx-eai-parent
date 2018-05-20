@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.ids.mapping.VidMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.ids.domain.Vid">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="ID_CODE" jdbcType="VARCHAR" property="idCode" />
+    <result column="ID_NAME" jdbcType="VARCHAR" property="idName" />
+    <result column="ID_TYPE" jdbcType="INTEGER" property="idType" />
+    <result column="CREATE_AT" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="MODIFY_AT" jdbcType="TIMESTAMP" property="modifyAt" />
+    <result column="TIMES" jdbcType="INTEGER" property="times" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, ID_CODE, ID_NAME, ID_TYPE, CREATE_AT, MODIFY_AT, TIMES
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.VidExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IDS.VID
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IDS.VID
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from IDS.VID
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.VidExample">
+    delete from IDS.VID
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.Vid">
+    insert into IDS.VID (ID, ID_CODE, ID_NAME, 
+      ID_TYPE, CREATE_AT, MODIFY_AT, 
+      TIMES)
+    values (#{id,jdbcType=BIGINT}, #{idCode,jdbcType=VARCHAR}, #{idName,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=INTEGER}, #{createAt,jdbcType=TIMESTAMP}, #{modifyAt,jdbcType=TIMESTAMP}, 
+      #{times,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.Vid">
+    insert into IDS.VID
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="idCode != null">
+        ID_CODE,
+      </if>
+      <if test="idName != null">
+        ID_NAME,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="createAt != null">
+        CREATE_AT,
+      </if>
+      <if test="modifyAt != null">
+        MODIFY_AT,
+      </if>
+      <if test="times != null">
+        TIMES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="idCode != null">
+        #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idName != null">
+        #{idName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyAt != null">
+        #{modifyAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.VidExample" resultType="java.lang.Long">
+    select count(*) from IDS.VID
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update IDS.VID
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.idCode != null">
+        ID_CODE = #{record.idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idName != null">
+        ID_NAME = #{record.idName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idType != null">
+        ID_TYPE = #{record.idType,jdbcType=INTEGER},
+      </if>
+      <if test="record.createAt != null">
+        CREATE_AT = #{record.createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyAt != null">
+        MODIFY_AT = #{record.modifyAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.times != null">
+        TIMES = #{record.times,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update IDS.VID
+    set ID = #{record.id,jdbcType=BIGINT},
+      ID_CODE = #{record.idCode,jdbcType=VARCHAR},
+      ID_NAME = #{record.idName,jdbcType=VARCHAR},
+      ID_TYPE = #{record.idType,jdbcType=INTEGER},
+      CREATE_AT = #{record.createAt,jdbcType=TIMESTAMP},
+      MODIFY_AT = #{record.modifyAt,jdbcType=TIMESTAMP},
+      TIMES = #{record.times,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.Vid">
+    update IDS.VID
+    <set>
+      <if test="idCode != null">
+        ID_CODE = #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idName != null">
+        ID_NAME = #{idName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        CREATE_AT = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyAt != null">
+        MODIFY_AT = #{modifyAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="times != null">
+        TIMES = #{times,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.ids.domain.Vid">
+    update IDS.VID
+    set ID_CODE = #{idCode,jdbcType=VARCHAR},
+      ID_NAME = #{idName,jdbcType=VARCHAR},
+      ID_TYPE = #{idType,jdbcType=INTEGER},
+      CREATE_AT = #{createAt,jdbcType=TIMESTAMP},
+      MODIFY_AT = #{modifyAt,jdbcType=TIMESTAMP},
+      TIMES = #{times,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

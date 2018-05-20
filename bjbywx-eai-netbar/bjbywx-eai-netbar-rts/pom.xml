@@ -1,0 +1,11 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.bjbywx.eai</groupId>
+    <artifactId>bjbywx-eai-netbar</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>bjbywx-eai-netbar-rts</artifactId>
+  <name>Beijing BoYiWangXun Integrated Management  For NetBar Trace Info Entity Support</name>
+  <description>Beijing BoYiWangXun Integrated Management  For NetBar Trace Info Entity Support</description>
+</project>

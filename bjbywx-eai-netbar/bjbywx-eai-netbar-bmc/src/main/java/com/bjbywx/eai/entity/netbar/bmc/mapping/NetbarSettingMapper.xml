@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjbywx.eai.entity.netbar.bmc.mapping.NetbarSettingMapper">
+  <resultMap id="BaseResultMap" type="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSetting">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="MAXADMIN" jdbcType="INTEGER" property="maxadmin" />
+    <result column="ADMINTIMER" jdbcType="INTEGER" property="admintimer" />
+    <result column="DUPCERTIDTIMES" jdbcType="INTEGER" property="dupcertidtimes" />
+    <result column="MONCERTIDRATIO" jdbcType="INTEGER" property="moncertidratio" />
+    <result column="SHUTOUT_TM" jdbcType="INTEGER" property="shutoutTm" />
+    <result column="ADMIN_LOGOUT" jdbcType="INTEGER" property="adminLogout" />
+    <result column="CLIENT_LOGOUT" jdbcType="INTEGER" property="clientLogout" />
+    <result column="MOBILE_PWD_LOGIN_TM" jdbcType="INTEGER" property="mobilePwdLoginTm" />
+    <result column="MOBILE_SWITCH_TM" jdbcType="INTEGER" property="mobileSwitchTm" />
+    <result column="IDTEMP_COUNT" jdbcType="INTEGER" property="idtempCount" />
+    <result column="IS_FGBOUND" jdbcType="INTEGER" property="isFgbound" />
+    <result column="AUTO_UPLOAD_TRACK" jdbcType="INTEGER" property="autoUploadTrack" />
+    <result column="MEDIA_COM" jdbcType="INTEGER" property="mediaCom" />
+    <result column="IS_PRICE_LIMIT" jdbcType="INTEGER" property="isPriceLimit" />
+    <result column="COMMON_PRICE" jdbcType="INTEGER" property="commonPrice" />
+    <result column="NIGHT_PRICE" jdbcType="INTEGER" property="nightPrice" />
+    <result column="TIME_PRICE" jdbcType="INTEGER" property="timePrice" />
+    <result column="IS_MEMFUN_LIMIT" jdbcType="INTEGER" property="isMemfunLimit" />
+    <result column="MEM_FUNCTION_NEW" jdbcType="INTEGER" property="memFunctionNew" />
+    <result column="MEM_FUNCTION_ADD" jdbcType="INTEGER" property="memFunctionAdd" />
+    <result column="MEM_ADD_PRESENT" jdbcType="INTEGER" property="memAddPresent" />
+    <result column="IS_IDLECHECKOUT_LIMIT" jdbcType="INTEGER" property="isIdlecheckoutLimit" />
+    <result column="TEMPIDLE_TM" jdbcType="INTEGER" property="tempidleTm" />
+    <result column="MEMIDLE_TM" jdbcType="INTEGER" property="memidleTm" />
+    <result column="IS_PCNUMLIMIT" jdbcType="INTEGER" property="isPcnumlimit" />
+    <result column="PCLIMIT_NUM" jdbcType="INTEGER" property="pclimitNum" />
+    <result column="SPOT_PERCENT" jdbcType="VARCHAR" property="spotPercent" />
+    <result column="LOSS_REASON" jdbcType="VARCHAR" property="lossReason" />
+    <result column="GET_FINGER_PIC" jdbcType="INTEGER" property="getFingerPic" />
+    <result column="GET_FINGER_UNLOCK" jdbcType="INTEGER" property="getFingerUnlock" />
+    <result column="OVERNIGHT_TIME" jdbcType="VARCHAR" property="overnightTime" />
+    <result column="MACHINEAUTH" jdbcType="INTEGER" property="machineauth" />
+    <result column="NETBAR_CHECK" jdbcType="INTEGER" property="netbarCheck" />
+    <result column="UPLOAD_REAL_NAME" jdbcType="INTEGER" property="uploadRealName" />
+    <result column="SHOW_PHOTO" jdbcType="INTEGER" property="showPhoto" />
+    <result column="TEMPUSERPERCENT" jdbcType="VARCHAR" property="tempuserpercent" />
+    <result column="FINGER_EXAM" jdbcType="INTEGER" property="fingerExam" />
+    <result column="MEM_TAO_CAN" jdbcType="INTEGER" property="memTaoCan" />
+    <result column="MEM_JI_DIAN" jdbcType="INTEGER" property="memJiDian" />
+    <result column="MEM_ZENG_SONG" jdbcType="INTEGER" property="memZengSong" />
+    <result column="MEM_ZENG_SONG_BI_LI" jdbcType="INTEGER" property="memZengSongBiLi" />
+    <result column="MEM_BIND_ACCOUNT" jdbcType="INTEGER" property="memBindAccount" />
+    <result column="PHONE_OPEN_ACCOUNT" jdbcType="INTEGER" property="phoneOpenAccount" />
+    <result column="TIME_OUT" jdbcType="INTEGER" property="timeOut" />
+    <result column="ADD_MONEY" jdbcType="INTEGER" property="addMoney" />
+    <result column="CHANGE_USER_NUMBER" jdbcType="INTEGER" property="changeUserNumber" />
+    <result column="BINDFINGERENABLEWRITE" jdbcType="INTEGER" property="bindfingerenablewrite" />
+    <result column="MOBILE_COUNT" jdbcType="INTEGER" property="mobileCount" />
+    <result column="DEDUCTION_RATE" jdbcType="INTEGER" property="deductionRate" />
+    <result column="NO_MOBILE_MAX_COUNT" jdbcType="INTEGER" property="noMobileMaxCount" />
+    <result column="LOWEST_TIME" jdbcType="INTEGER" property="lowestTime" />
+    <result column="CONTROLPAYCARD" jdbcType="INTEGER" property="controlpaycard" />
+    <result column="SIXFIVEIDCARDLIMIT" jdbcType="INTEGER" property="sixfiveidcardlimit" />
+    <result column="ADMINLIMIT" jdbcType="VARCHAR" property="adminlimit" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SERVICE_CODE, AREA_CODE, MAXADMIN, ADMINTIMER, DUPCERTIDTIMES, MONCERTIDRATIO, 
+    SHUTOUT_TM, ADMIN_LOGOUT, CLIENT_LOGOUT, MOBILE_PWD_LOGIN_TM, MOBILE_SWITCH_TM, IDTEMP_COUNT, 
+    IS_FGBOUND, AUTO_UPLOAD_TRACK, MEDIA_COM, IS_PRICE_LIMIT, COMMON_PRICE, NIGHT_PRICE, 
+    TIME_PRICE, IS_MEMFUN_LIMIT, MEM_FUNCTION_NEW, MEM_FUNCTION_ADD, MEM_ADD_PRESENT, 
+    IS_IDLECHECKOUT_LIMIT, TEMPIDLE_TM, MEMIDLE_TM, IS_PCNUMLIMIT, PCLIMIT_NUM, SPOT_PERCENT, 
+    LOSS_REASON, GET_FINGER_PIC, GET_FINGER_UNLOCK, OVERNIGHT_TIME, MACHINEAUTH, NETBAR_CHECK, 
+    UPLOAD_REAL_NAME, SHOW_PHOTO, TEMPUSERPERCENT, FINGER_EXAM, MEM_TAO_CAN, MEM_JI_DIAN, 
+    MEM_ZENG_SONG, MEM_ZENG_SONG_BI_LI, MEM_BIND_ACCOUNT, PHONE_OPEN_ACCOUNT, TIME_OUT, 
+    ADD_MONEY, CHANGE_USER_NUMBER, BINDFINGERENABLEWRITE, MOBILE_COUNT, DEDUCTION_RATE, 
+    NO_MOBILE_MAX_COUNT, LOWEST_TIME, CONTROLPAYCARD, SIXFIVEIDCARDLIMIT, ADMINLIMIT
+  </sql>
+  <select id="selectByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSettingExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR_SETTING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BMC.NETBAR_SETTING
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from BMC.NETBAR_SETTING
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSettingExample">
+    delete from BMC.NETBAR_SETTING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSetting">
+    insert into BMC.NETBAR_SETTING (ID, SERVICE_CODE, AREA_CODE, 
+      MAXADMIN, ADMINTIMER, DUPCERTIDTIMES, 
+      MONCERTIDRATIO, SHUTOUT_TM, ADMIN_LOGOUT, 
+      CLIENT_LOGOUT, MOBILE_PWD_LOGIN_TM, MOBILE_SWITCH_TM, 
+      IDTEMP_COUNT, IS_FGBOUND, AUTO_UPLOAD_TRACK, 
+      MEDIA_COM, IS_PRICE_LIMIT, COMMON_PRICE, 
+      NIGHT_PRICE, TIME_PRICE, IS_MEMFUN_LIMIT, 
+      MEM_FUNCTION_NEW, MEM_FUNCTION_ADD, MEM_ADD_PRESENT, 
+      IS_IDLECHECKOUT_LIMIT, TEMPIDLE_TM, MEMIDLE_TM, 
+      IS_PCNUMLIMIT, PCLIMIT_NUM, SPOT_PERCENT, 
+      LOSS_REASON, GET_FINGER_PIC, GET_FINGER_UNLOCK, 
+      OVERNIGHT_TIME, MACHINEAUTH, NETBAR_CHECK, 
+      UPLOAD_REAL_NAME, SHOW_PHOTO, TEMPUSERPERCENT, 
+      FINGER_EXAM, MEM_TAO_CAN, MEM_JI_DIAN, 
+      MEM_ZENG_SONG, MEM_ZENG_SONG_BI_LI, MEM_BIND_ACCOUNT, 
+      PHONE_OPEN_ACCOUNT, TIME_OUT, ADD_MONEY, 
+      CHANGE_USER_NUMBER, BINDFINGERENABLEWRITE, 
+      MOBILE_COUNT, DEDUCTION_RATE, NO_MOBILE_MAX_COUNT, 
+      LOWEST_TIME, CONTROLPAYCARD, SIXFIVEIDCARDLIMIT, 
+      ADMINLIMIT)
+    values (#{id,jdbcType=BIGINT}, #{serviceCode,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{maxadmin,jdbcType=INTEGER}, #{admintimer,jdbcType=INTEGER}, #{dupcertidtimes,jdbcType=INTEGER}, 
+      #{moncertidratio,jdbcType=INTEGER}, #{shutoutTm,jdbcType=INTEGER}, #{adminLogout,jdbcType=INTEGER}, 
+      #{clientLogout,jdbcType=INTEGER}, #{mobilePwdLoginTm,jdbcType=INTEGER}, #{mobileSwitchTm,jdbcType=INTEGER}, 
+      #{idtempCount,jdbcType=INTEGER}, #{isFgbound,jdbcType=INTEGER}, #{autoUploadTrack,jdbcType=INTEGER}, 
+      #{mediaCom,jdbcType=INTEGER}, #{isPriceLimit,jdbcType=INTEGER}, #{commonPrice,jdbcType=INTEGER}, 
+      #{nightPrice,jdbcType=INTEGER}, #{timePrice,jdbcType=INTEGER}, #{isMemfunLimit,jdbcType=INTEGER}, 
+      #{memFunctionNew,jdbcType=INTEGER}, #{memFunctionAdd,jdbcType=INTEGER}, #{memAddPresent,jdbcType=INTEGER}, 
+      #{isIdlecheckoutLimit,jdbcType=INTEGER}, #{tempidleTm,jdbcType=INTEGER}, #{memidleTm,jdbcType=INTEGER}, 
+      #{isPcnumlimit,jdbcType=INTEGER}, #{pclimitNum,jdbcType=INTEGER}, #{spotPercent,jdbcType=VARCHAR}, 
+      #{lossReason,jdbcType=VARCHAR}, #{getFingerPic,jdbcType=INTEGER}, #{getFingerUnlock,jdbcType=INTEGER}, 
+      #{overnightTime,jdbcType=VARCHAR}, #{machineauth,jdbcType=INTEGER}, #{netbarCheck,jdbcType=INTEGER}, 
+      #{uploadRealName,jdbcType=INTEGER}, #{showPhoto,jdbcType=INTEGER}, #{tempuserpercent,jdbcType=VARCHAR}, 
+      #{fingerExam,jdbcType=INTEGER}, #{memTaoCan,jdbcType=INTEGER}, #{memJiDian,jdbcType=INTEGER}, 
+      #{memZengSong,jdbcType=INTEGER}, #{memZengSongBiLi,jdbcType=INTEGER}, #{memBindAccount,jdbcType=INTEGER}, 
+      #{phoneOpenAccount,jdbcType=INTEGER}, #{timeOut,jdbcType=INTEGER}, #{addMoney,jdbcType=INTEGER}, 
+      #{changeUserNumber,jdbcType=INTEGER}, #{bindfingerenablewrite,jdbcType=INTEGER}, 
+      #{mobileCount,jdbcType=INTEGER}, #{deductionRate,jdbcType=INTEGER}, #{noMobileMaxCount,jdbcType=INTEGER}, 
+      #{lowestTime,jdbcType=INTEGER}, #{controlpaycard,jdbcType=INTEGER}, #{sixfiveidcardlimit,jdbcType=INTEGER}, 
+      #{adminlimit,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSetting">
+    insert into BMC.NETBAR_SETTING
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="serviceCode != null">
+        SERVICE_CODE,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="maxadmin != null">
+        MAXADMIN,
+      </if>
+      <if test="admintimer != null">
+        ADMINTIMER,
+      </if>
+      <if test="dupcertidtimes != null">
+        DUPCERTIDTIMES,
+      </if>
+      <if test="moncertidratio != null">
+        MONCERTIDRATIO,
+      </if>
+      <if test="shutoutTm != null">
+        SHUTOUT_TM,
+      </if>
+      <if test="adminLogout != null">
+        ADMIN_LOGOUT,
+      </if>
+      <if test="clientLogout != null">
+        CLIENT_LOGOUT,
+      </if>
+      <if test="mobilePwdLoginTm != null">
+        MOBILE_PWD_LOGIN_TM,
+      </if>
+      <if test="mobileSwitchTm != null">
+        MOBILE_SWITCH_TM,
+      </if>
+      <if test="idtempCount != null">
+        IDTEMP_COUNT,
+      </if>
+      <if test="isFgbound != null">
+        IS_FGBOUND,
+      </if>
+      <if test="autoUploadTrack != null">
+        AUTO_UPLOAD_TRACK,
+      </if>
+      <if test="mediaCom != null">
+        MEDIA_COM,
+      </if>
+      <if test="isPriceLimit != null">
+        IS_PRICE_LIMIT,
+      </if>
+      <if test="commonPrice != null">
+        COMMON_PRICE,
+      </if>
+      <if test="nightPrice != null">
+        NIGHT_PRICE,
+      </if>
+      <if test="timePrice != null">
+        TIME_PRICE,
+      </if>
+      <if test="isMemfunLimit != null">
+        IS_MEMFUN_LIMIT,
+      </if>
+      <if test="memFunctionNew != null">
+        MEM_FUNCTION_NEW,
+      </if>
+      <if test="memFunctionAdd != null">
+        MEM_FUNCTION_ADD,
+      </if>
+      <if test="memAddPresent != null">
+        MEM_ADD_PRESENT,
+      </if>
+      <if test="isIdlecheckoutLimit != null">
+        IS_IDLECHECKOUT_LIMIT,
+      </if>
+      <if test="tempidleTm != null">
+        TEMPIDLE_TM,
+      </if>
+      <if test="memidleTm != null">
+        MEMIDLE_TM,
+      </if>
+      <if test="isPcnumlimit != null">
+        IS_PCNUMLIMIT,
+      </if>
+      <if test="pclimitNum != null">
+        PCLIMIT_NUM,
+      </if>
+      <if test="spotPercent != null">
+        SPOT_PERCENT,
+      </if>
+      <if test="lossReason != null">
+        LOSS_REASON,
+      </if>
+      <if test="getFingerPic != null">
+        GET_FINGER_PIC,
+      </if>
+      <if test="getFingerUnlock != null">
+        GET_FINGER_UNLOCK,
+      </if>
+      <if test="overnightTime != null">
+        OVERNIGHT_TIME,
+      </if>
+      <if test="machineauth != null">
+        MACHINEAUTH,
+      </if>
+      <if test="netbarCheck != null">
+        NETBAR_CHECK,
+      </if>
+      <if test="uploadRealName != null">
+        UPLOAD_REAL_NAME,
+      </if>
+      <if test="showPhoto != null">
+        SHOW_PHOTO,
+      </if>
+      <if test="tempuserpercent != null">
+        TEMPUSERPERCENT,
+      </if>
+      <if test="fingerExam != null">
+        FINGER_EXAM,
+      </if>
+      <if test="memTaoCan != null">
+        MEM_TAO_CAN,
+      </if>
+      <if test="memJiDian != null">
+        MEM_JI_DIAN,
+      </if>
+      <if test="memZengSong != null">
+        MEM_ZENG_SONG,
+      </if>
+      <if test="memZengSongBiLi != null">
+        MEM_ZENG_SONG_BI_LI,
+      </if>
+      <if test="memBindAccount != null">
+        MEM_BIND_ACCOUNT,
+      </if>
+      <if test="phoneOpenAccount != null">
+        PHONE_OPEN_ACCOUNT,
+      </if>
+      <if test="timeOut != null">
+        TIME_OUT,
+      </if>
+      <if test="addMoney != null">
+        ADD_MONEY,
+      </if>
+      <if test="changeUserNumber != null">
+        CHANGE_USER_NUMBER,
+      </if>
+      <if test="bindfingerenablewrite != null">
+        BINDFINGERENABLEWRITE,
+      </if>
+      <if test="mobileCount != null">
+        MOBILE_COUNT,
+      </if>
+      <if test="deductionRate != null">
+        DEDUCTION_RATE,
+      </if>
+      <if test="noMobileMaxCount != null">
+        NO_MOBILE_MAX_COUNT,
+      </if>
+      <if test="lowestTime != null">
+        LOWEST_TIME,
+      </if>
+      <if test="controlpaycard != null">
+        CONTROLPAYCARD,
+      </if>
+      <if test="sixfiveidcardlimit != null">
+        SIXFIVEIDCARDLIMIT,
+      </if>
+      <if test="adminlimit != null">
+        ADMINLIMIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="maxadmin != null">
+        #{maxadmin,jdbcType=INTEGER},
+      </if>
+      <if test="admintimer != null">
+        #{admintimer,jdbcType=INTEGER},
+      </if>
+      <if test="dupcertidtimes != null">
+        #{dupcertidtimes,jdbcType=INTEGER},
+      </if>
+      <if test="moncertidratio != null">
+        #{moncertidratio,jdbcType=INTEGER},
+      </if>
+      <if test="shutoutTm != null">
+        #{shutoutTm,jdbcType=INTEGER},
+      </if>
+      <if test="adminLogout != null">
+        #{adminLogout,jdbcType=INTEGER},
+      </if>
+      <if test="clientLogout != null">
+        #{clientLogout,jdbcType=INTEGER},
+      </if>
+      <if test="mobilePwdLoginTm != null">
+        #{mobilePwdLoginTm,jdbcType=INTEGER},
+      </if>
+      <if test="mobileSwitchTm != null">
+        #{mobileSwitchTm,jdbcType=INTEGER},
+      </if>
+      <if test="idtempCount != null">
+        #{idtempCount,jdbcType=INTEGER},
+      </if>
+      <if test="isFgbound != null">
+        #{isFgbound,jdbcType=INTEGER},
+      </if>
+      <if test="autoUploadTrack != null">
+        #{autoUploadTrack,jdbcType=INTEGER},
+      </if>
+      <if test="mediaCom != null">
+        #{mediaCom,jdbcType=INTEGER},
+      </if>
+      <if test="isPriceLimit != null">
+        #{isPriceLimit,jdbcType=INTEGER},
+      </if>
+      <if test="commonPrice != null">
+        #{commonPrice,jdbcType=INTEGER},
+      </if>
+      <if test="nightPrice != null">
+        #{nightPrice,jdbcType=INTEGER},
+      </if>
+      <if test="timePrice != null">
+        #{timePrice,jdbcType=INTEGER},
+      </if>
+      <if test="isMemfunLimit != null">
+        #{isMemfunLimit,jdbcType=INTEGER},
+      </if>
+      <if test="memFunctionNew != null">
+        #{memFunctionNew,jdbcType=INTEGER},
+      </if>
+      <if test="memFunctionAdd != null">
+        #{memFunctionAdd,jdbcType=INTEGER},
+      </if>
+      <if test="memAddPresent != null">
+        #{memAddPresent,jdbcType=INTEGER},
+      </if>
+      <if test="isIdlecheckoutLimit != null">
+        #{isIdlecheckoutLimit,jdbcType=INTEGER},
+      </if>
+      <if test="tempidleTm != null">
+        #{tempidleTm,jdbcType=INTEGER},
+      </if>
+      <if test="memidleTm != null">
+        #{memidleTm,jdbcType=INTEGER},
+      </if>
+      <if test="isPcnumlimit != null">
+        #{isPcnumlimit,jdbcType=INTEGER},
+      </if>
+      <if test="pclimitNum != null">
+        #{pclimitNum,jdbcType=INTEGER},
+      </if>
+      <if test="spotPercent != null">
+        #{spotPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="lossReason != null">
+        #{lossReason,jdbcType=VARCHAR},
+      </if>
+      <if test="getFingerPic != null">
+        #{getFingerPic,jdbcType=INTEGER},
+      </if>
+      <if test="getFingerUnlock != null">
+        #{getFingerUnlock,jdbcType=INTEGER},
+      </if>
+      <if test="overnightTime != null">
+        #{overnightTime,jdbcType=VARCHAR},
+      </if>
+      <if test="machineauth != null">
+        #{machineauth,jdbcType=INTEGER},
+      </if>
+      <if test="netbarCheck != null">
+        #{netbarCheck,jdbcType=INTEGER},
+      </if>
+      <if test="uploadRealName != null">
+        #{uploadRealName,jdbcType=INTEGER},
+      </if>
+      <if test="showPhoto != null">
+        #{showPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="tempuserpercent != null">
+        #{tempuserpercent,jdbcType=VARCHAR},
+      </if>
+      <if test="fingerExam != null">
+        #{fingerExam,jdbcType=INTEGER},
+      </if>
+      <if test="memTaoCan != null">
+        #{memTaoCan,jdbcType=INTEGER},
+      </if>
+      <if test="memJiDian != null">
+        #{memJiDian,jdbcType=INTEGER},
+      </if>
+      <if test="memZengSong != null">
+        #{memZengSong,jdbcType=INTEGER},
+      </if>
+      <if test="memZengSongBiLi != null">
+        #{memZengSongBiLi,jdbcType=INTEGER},
+      </if>
+      <if test="memBindAccount != null">
+        #{memBindAccount,jdbcType=INTEGER},
+      </if>
+      <if test="phoneOpenAccount != null">
+        #{phoneOpenAccount,jdbcType=INTEGER},
+      </if>
+      <if test="timeOut != null">
+        #{timeOut,jdbcType=INTEGER},
+      </if>
+      <if test="addMoney != null">
+        #{addMoney,jdbcType=INTEGER},
+      </if>
+      <if test="changeUserNumber != null">
+        #{changeUserNumber,jdbcType=INTEGER},
+      </if>
+      <if test="bindfingerenablewrite != null">
+        #{bindfingerenablewrite,jdbcType=INTEGER},
+      </if>
+      <if test="mobileCount != null">
+        #{mobileCount,jdbcType=INTEGER},
+      </if>
+      <if test="deductionRate != null">
+        #{deductionRate,jdbcType=INTEGER},
+      </if>
+      <if test="noMobileMaxCount != null">
+        #{noMobileMaxCount,jdbcType=INTEGER},
+      </if>
+      <if test="lowestTime != null">
+        #{lowestTime,jdbcType=INTEGER},
+      </if>
+      <if test="controlpaycard != null">
+        #{controlpaycard,jdbcType=INTEGER},
+      </if>
+      <if test="sixfiveidcardlimit != null">
+        #{sixfiveidcardlimit,jdbcType=INTEGER},
+      </if>
+      <if test="adminlimit != null">
+        #{adminlimit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSettingExample" resultType="java.lang.Long">
+    select count(*) from BMC.NETBAR_SETTING
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BMC.NETBAR_SETTING
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.serviceCode != null">
+        SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaCode != null">
+        AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxadmin != null">
+        MAXADMIN = #{record.maxadmin,jdbcType=INTEGER},
+      </if>
+      <if test="record.admintimer != null">
+        ADMINTIMER = #{record.admintimer,jdbcType=INTEGER},
+      </if>
+      <if test="record.dupcertidtimes != null">
+        DUPCERTIDTIMES = #{record.dupcertidtimes,jdbcType=INTEGER},
+      </if>
+      <if test="record.moncertidratio != null">
+        MONCERTIDRATIO = #{record.moncertidratio,jdbcType=INTEGER},
+      </if>
+      <if test="record.shutoutTm != null">
+        SHUTOUT_TM = #{record.shutoutTm,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminLogout != null">
+        ADMIN_LOGOUT = #{record.adminLogout,jdbcType=INTEGER},
+      </if>
+      <if test="record.clientLogout != null">
+        CLIENT_LOGOUT = #{record.clientLogout,jdbcType=INTEGER},
+      </if>
+      <if test="record.mobilePwdLoginTm != null">
+        MOBILE_PWD_LOGIN_TM = #{record.mobilePwdLoginTm,jdbcType=INTEGER},
+      </if>
+      <if test="record.mobileSwitchTm != null">
+        MOBILE_SWITCH_TM = #{record.mobileSwitchTm,jdbcType=INTEGER},
+      </if>
+      <if test="record.idtempCount != null">
+        IDTEMP_COUNT = #{record.idtempCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.isFgbound != null">
+        IS_FGBOUND = #{record.isFgbound,jdbcType=INTEGER},
+      </if>
+      <if test="record.autoUploadTrack != null">
+        AUTO_UPLOAD_TRACK = #{record.autoUploadTrack,jdbcType=INTEGER},
+      </if>
+      <if test="record.mediaCom != null">
+        MEDIA_COM = #{record.mediaCom,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPriceLimit != null">
+        IS_PRICE_LIMIT = #{record.isPriceLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.commonPrice != null">
+        COMMON_PRICE = #{record.commonPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.nightPrice != null">
+        NIGHT_PRICE = #{record.nightPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.timePrice != null">
+        TIME_PRICE = #{record.timePrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.isMemfunLimit != null">
+        IS_MEMFUN_LIMIT = #{record.isMemfunLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.memFunctionNew != null">
+        MEM_FUNCTION_NEW = #{record.memFunctionNew,jdbcType=INTEGER},
+      </if>
+      <if test="record.memFunctionAdd != null">
+        MEM_FUNCTION_ADD = #{record.memFunctionAdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.memAddPresent != null">
+        MEM_ADD_PRESENT = #{record.memAddPresent,jdbcType=INTEGER},
+      </if>
+      <if test="record.isIdlecheckoutLimit != null">
+        IS_IDLECHECKOUT_LIMIT = #{record.isIdlecheckoutLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.tempidleTm != null">
+        TEMPIDLE_TM = #{record.tempidleTm,jdbcType=INTEGER},
+      </if>
+      <if test="record.memidleTm != null">
+        MEMIDLE_TM = #{record.memidleTm,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPcnumlimit != null">
+        IS_PCNUMLIMIT = #{record.isPcnumlimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.pclimitNum != null">
+        PCLIMIT_NUM = #{record.pclimitNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.spotPercent != null">
+        SPOT_PERCENT = #{record.spotPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lossReason != null">
+        LOSS_REASON = #{record.lossReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.getFingerPic != null">
+        GET_FINGER_PIC = #{record.getFingerPic,jdbcType=INTEGER},
+      </if>
+      <if test="record.getFingerUnlock != null">
+        GET_FINGER_UNLOCK = #{record.getFingerUnlock,jdbcType=INTEGER},
+      </if>
+      <if test="record.overnightTime != null">
+        OVERNIGHT_TIME = #{record.overnightTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineauth != null">
+        MACHINEAUTH = #{record.machineauth,jdbcType=INTEGER},
+      </if>
+      <if test="record.netbarCheck != null">
+        NETBAR_CHECK = #{record.netbarCheck,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadRealName != null">
+        UPLOAD_REAL_NAME = #{record.uploadRealName,jdbcType=INTEGER},
+      </if>
+      <if test="record.showPhoto != null">
+        SHOW_PHOTO = #{record.showPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="record.tempuserpercent != null">
+        TEMPUSERPERCENT = #{record.tempuserpercent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fingerExam != null">
+        FINGER_EXAM = #{record.fingerExam,jdbcType=INTEGER},
+      </if>
+      <if test="record.memTaoCan != null">
+        MEM_TAO_CAN = #{record.memTaoCan,jdbcType=INTEGER},
+      </if>
+      <if test="record.memJiDian != null">
+        MEM_JI_DIAN = #{record.memJiDian,jdbcType=INTEGER},
+      </if>
+      <if test="record.memZengSong != null">
+        MEM_ZENG_SONG = #{record.memZengSong,jdbcType=INTEGER},
+      </if>
+      <if test="record.memZengSongBiLi != null">
+        MEM_ZENG_SONG_BI_LI = #{record.memZengSongBiLi,jdbcType=INTEGER},
+      </if>
+      <if test="record.memBindAccount != null">
+        MEM_BIND_ACCOUNT = #{record.memBindAccount,jdbcType=INTEGER},
+      </if>
+      <if test="record.phoneOpenAccount != null">
+        PHONE_OPEN_ACCOUNT = #{record.phoneOpenAccount,jdbcType=INTEGER},
+      </if>
+      <if test="record.timeOut != null">
+        TIME_OUT = #{record.timeOut,jdbcType=INTEGER},
+      </if>
+      <if test="record.addMoney != null">
+        ADD_MONEY = #{record.addMoney,jdbcType=INTEGER},
+      </if>
+      <if test="record.changeUserNumber != null">
+        CHANGE_USER_NUMBER = #{record.changeUserNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.bindfingerenablewrite != null">
+        BINDFINGERENABLEWRITE = #{record.bindfingerenablewrite,jdbcType=INTEGER},
+      </if>
+      <if test="record.mobileCount != null">
+        MOBILE_COUNT = #{record.mobileCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.deductionRate != null">
+        DEDUCTION_RATE = #{record.deductionRate,jdbcType=INTEGER},
+      </if>
+      <if test="record.noMobileMaxCount != null">
+        NO_MOBILE_MAX_COUNT = #{record.noMobileMaxCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.lowestTime != null">
+        LOWEST_TIME = #{record.lowestTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.controlpaycard != null">
+        CONTROLPAYCARD = #{record.controlpaycard,jdbcType=INTEGER},
+      </if>
+      <if test="record.sixfiveidcardlimit != null">
+        SIXFIVEIDCARDLIMIT = #{record.sixfiveidcardlimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.adminlimit != null">
+        ADMINLIMIT = #{record.adminlimit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BMC.NETBAR_SETTING
+    set ID = #{record.id,jdbcType=BIGINT},
+      SERVICE_CODE = #{record.serviceCode,jdbcType=VARCHAR},
+      AREA_CODE = #{record.areaCode,jdbcType=VARCHAR},
+      MAXADMIN = #{record.maxadmin,jdbcType=INTEGER},
+      ADMINTIMER = #{record.admintimer,jdbcType=INTEGER},
+      DUPCERTIDTIMES = #{record.dupcertidtimes,jdbcType=INTEGER},
+      MONCERTIDRATIO = #{record.moncertidratio,jdbcType=INTEGER},
+      SHUTOUT_TM = #{record.shutoutTm,jdbcType=INTEGER},
+      ADMIN_LOGOUT = #{record.adminLogout,jdbcType=INTEGER},
+      CLIENT_LOGOUT = #{record.clientLogout,jdbcType=INTEGER},
+      MOBILE_PWD_LOGIN_TM = #{record.mobilePwdLoginTm,jdbcType=INTEGER},
+      MOBILE_SWITCH_TM = #{record.mobileSwitchTm,jdbcType=INTEGER},
+      IDTEMP_COUNT = #{record.idtempCount,jdbcType=INTEGER},
+      IS_FGBOUND = #{record.isFgbound,jdbcType=INTEGER},
+      AUTO_UPLOAD_TRACK = #{record.autoUploadTrack,jdbcType=INTEGER},
+      MEDIA_COM = #{record.mediaCom,jdbcType=INTEGER},
+      IS_PRICE_LIMIT = #{record.isPriceLimit,jdbcType=INTEGER},
+      COMMON_PRICE = #{record.commonPrice,jdbcType=INTEGER},
+      NIGHT_PRICE = #{record.nightPrice,jdbcType=INTEGER},
+      TIME_PRICE = #{record.timePrice,jdbcType=INTEGER},
+      IS_MEMFUN_LIMIT = #{record.isMemfunLimit,jdbcType=INTEGER},
+      MEM_FUNCTION_NEW = #{record.memFunctionNew,jdbcType=INTEGER},
+      MEM_FUNCTION_ADD = #{record.memFunctionAdd,jdbcType=INTEGER},
+      MEM_ADD_PRESENT = #{record.memAddPresent,jdbcType=INTEGER},
+      IS_IDLECHECKOUT_LIMIT = #{record.isIdlecheckoutLimit,jdbcType=INTEGER},
+      TEMPIDLE_TM = #{record.tempidleTm,jdbcType=INTEGER},
+      MEMIDLE_TM = #{record.memidleTm,jdbcType=INTEGER},
+      IS_PCNUMLIMIT = #{record.isPcnumlimit,jdbcType=INTEGER},
+      PCLIMIT_NUM = #{record.pclimitNum,jdbcType=INTEGER},
+      SPOT_PERCENT = #{record.spotPercent,jdbcType=VARCHAR},
+      LOSS_REASON = #{record.lossReason,jdbcType=VARCHAR},
+      GET_FINGER_PIC = #{record.getFingerPic,jdbcType=INTEGER},
+      GET_FINGER_UNLOCK = #{record.getFingerUnlock,jdbcType=INTEGER},
+      OVERNIGHT_TIME = #{record.overnightTime,jdbcType=VARCHAR},
+      MACHINEAUTH = #{record.machineauth,jdbcType=INTEGER},
+      NETBAR_CHECK = #{record.netbarCheck,jdbcType=INTEGER},
+      UPLOAD_REAL_NAME = #{record.uploadRealName,jdbcType=INTEGER},
+      SHOW_PHOTO = #{record.showPhoto,jdbcType=INTEGER},
+      TEMPUSERPERCENT = #{record.tempuserpercent,jdbcType=VARCHAR},
+      FINGER_EXAM = #{record.fingerExam,jdbcType=INTEGER},
+      MEM_TAO_CAN = #{record.memTaoCan,jdbcType=INTEGER},
+      MEM_JI_DIAN = #{record.memJiDian,jdbcType=INTEGER},
+      MEM_ZENG_SONG = #{record.memZengSong,jdbcType=INTEGER},
+      MEM_ZENG_SONG_BI_LI = #{record.memZengSongBiLi,jdbcType=INTEGER},
+      MEM_BIND_ACCOUNT = #{record.memBindAccount,jdbcType=INTEGER},
+      PHONE_OPEN_ACCOUNT = #{record.phoneOpenAccount,jdbcType=INTEGER},
+      TIME_OUT = #{record.timeOut,jdbcType=INTEGER},
+      ADD_MONEY = #{record.addMoney,jdbcType=INTEGER},
+      CHANGE_USER_NUMBER = #{record.changeUserNumber,jdbcType=INTEGER},
+      BINDFINGERENABLEWRITE = #{record.bindfingerenablewrite,jdbcType=INTEGER},
+      MOBILE_COUNT = #{record.mobileCount,jdbcType=INTEGER},
+      DEDUCTION_RATE = #{record.deductionRate,jdbcType=INTEGER},
+      NO_MOBILE_MAX_COUNT = #{record.noMobileMaxCount,jdbcType=INTEGER},
+      LOWEST_TIME = #{record.lowestTime,jdbcType=INTEGER},
+      CONTROLPAYCARD = #{record.controlpaycard,jdbcType=INTEGER},
+      SIXFIVEIDCARDLIMIT = #{record.sixfiveidcardlimit,jdbcType=INTEGER},
+      ADMINLIMIT = #{record.adminlimit,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSetting">
+    update BMC.NETBAR_SETTING
+    <set>
+      <if test="serviceCode != null">
+        SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="maxadmin != null">
+        MAXADMIN = #{maxadmin,jdbcType=INTEGER},
+      </if>
+      <if test="admintimer != null">
+        ADMINTIMER = #{admintimer,jdbcType=INTEGER},
+      </if>
+      <if test="dupcertidtimes != null">
+        DUPCERTIDTIMES = #{dupcertidtimes,jdbcType=INTEGER},
+      </if>
+      <if test="moncertidratio != null">
+        MONCERTIDRATIO = #{moncertidratio,jdbcType=INTEGER},
+      </if>
+      <if test="shutoutTm != null">
+        SHUTOUT_TM = #{shutoutTm,jdbcType=INTEGER},
+      </if>
+      <if test="adminLogout != null">
+        ADMIN_LOGOUT = #{adminLogout,jdbcType=INTEGER},
+      </if>
+      <if test="clientLogout != null">
+        CLIENT_LOGOUT = #{clientLogout,jdbcType=INTEGER},
+      </if>
+      <if test="mobilePwdLoginTm != null">
+        MOBILE_PWD_LOGIN_TM = #{mobilePwdLoginTm,jdbcType=INTEGER},
+      </if>
+      <if test="mobileSwitchTm != null">
+        MOBILE_SWITCH_TM = #{mobileSwitchTm,jdbcType=INTEGER},
+      </if>
+      <if test="idtempCount != null">
+        IDTEMP_COUNT = #{idtempCount,jdbcType=INTEGER},
+      </if>
+      <if test="isFgbound != null">
+        IS_FGBOUND = #{isFgbound,jdbcType=INTEGER},
+      </if>
+      <if test="autoUploadTrack != null">
+        AUTO_UPLOAD_TRACK = #{autoUploadTrack,jdbcType=INTEGER},
+      </if>
+      <if test="mediaCom != null">
+        MEDIA_COM = #{mediaCom,jdbcType=INTEGER},
+      </if>
+      <if test="isPriceLimit != null">
+        IS_PRICE_LIMIT = #{isPriceLimit,jdbcType=INTEGER},
+      </if>
+      <if test="commonPrice != null">
+        COMMON_PRICE = #{commonPrice,jdbcType=INTEGER},
+      </if>
+      <if test="nightPrice != null">
+        NIGHT_PRICE = #{nightPrice,jdbcType=INTEGER},
+      </if>
+      <if test="timePrice != null">
+        TIME_PRICE = #{timePrice,jdbcType=INTEGER},
+      </if>
+      <if test="isMemfunLimit != null">
+        IS_MEMFUN_LIMIT = #{isMemfunLimit,jdbcType=INTEGER},
+      </if>
+      <if test="memFunctionNew != null">
+        MEM_FUNCTION_NEW = #{memFunctionNew,jdbcType=INTEGER},
+      </if>
+      <if test="memFunctionAdd != null">
+        MEM_FUNCTION_ADD = #{memFunctionAdd,jdbcType=INTEGER},
+      </if>
+      <if test="memAddPresent != null">
+        MEM_ADD_PRESENT = #{memAddPresent,jdbcType=INTEGER},
+      </if>
+      <if test="isIdlecheckoutLimit != null">
+        IS_IDLECHECKOUT_LIMIT = #{isIdlecheckoutLimit,jdbcType=INTEGER},
+      </if>
+      <if test="tempidleTm != null">
+        TEMPIDLE_TM = #{tempidleTm,jdbcType=INTEGER},
+      </if>
+      <if test="memidleTm != null">
+        MEMIDLE_TM = #{memidleTm,jdbcType=INTEGER},
+      </if>
+      <if test="isPcnumlimit != null">
+        IS_PCNUMLIMIT = #{isPcnumlimit,jdbcType=INTEGER},
+      </if>
+      <if test="pclimitNum != null">
+        PCLIMIT_NUM = #{pclimitNum,jdbcType=INTEGER},
+      </if>
+      <if test="spotPercent != null">
+        SPOT_PERCENT = #{spotPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="lossReason != null">
+        LOSS_REASON = #{lossReason,jdbcType=VARCHAR},
+      </if>
+      <if test="getFingerPic != null">
+        GET_FINGER_PIC = #{getFingerPic,jdbcType=INTEGER},
+      </if>
+      <if test="getFingerUnlock != null">
+        GET_FINGER_UNLOCK = #{getFingerUnlock,jdbcType=INTEGER},
+      </if>
+      <if test="overnightTime != null">
+        OVERNIGHT_TIME = #{overnightTime,jdbcType=VARCHAR},
+      </if>
+      <if test="machineauth != null">
+        MACHINEAUTH = #{machineauth,jdbcType=INTEGER},
+      </if>
+      <if test="netbarCheck != null">
+        NETBAR_CHECK = #{netbarCheck,jdbcType=INTEGER},
+      </if>
+      <if test="uploadRealName != null">
+        UPLOAD_REAL_NAME = #{uploadRealName,jdbcType=INTEGER},
+      </if>
+      <if test="showPhoto != null">
+        SHOW_PHOTO = #{showPhoto,jdbcType=INTEGER},
+      </if>
+      <if test="tempuserpercent != null">
+        TEMPUSERPERCENT = #{tempuserpercent,jdbcType=VARCHAR},
+      </if>
+      <if test="fingerExam != null">
+        FINGER_EXAM = #{fingerExam,jdbcType=INTEGER},
+      </if>
+      <if test="memTaoCan != null">
+        MEM_TAO_CAN = #{memTaoCan,jdbcType=INTEGER},
+      </if>
+      <if test="memJiDian != null">
+        MEM_JI_DIAN = #{memJiDian,jdbcType=INTEGER},
+      </if>
+      <if test="memZengSong != null">
+        MEM_ZENG_SONG = #{memZengSong,jdbcType=INTEGER},
+      </if>
+      <if test="memZengSongBiLi != null">
+        MEM_ZENG_SONG_BI_LI = #{memZengSongBiLi,jdbcType=INTEGER},
+      </if>
+      <if test="memBindAccount != null">
+        MEM_BIND_ACCOUNT = #{memBindAccount,jdbcType=INTEGER},
+      </if>
+      <if test="phoneOpenAccount != null">
+        PHONE_OPEN_ACCOUNT = #{phoneOpenAccount,jdbcType=INTEGER},
+      </if>
+      <if test="timeOut != null">
+        TIME_OUT = #{timeOut,jdbcType=INTEGER},
+      </if>
+      <if test="addMoney != null">
+        ADD_MONEY = #{addMoney,jdbcType=INTEGER},
+      </if>
+      <if test="changeUserNumber != null">
+        CHANGE_USER_NUMBER = #{changeUserNumber,jdbcType=INTEGER},
+      </if>
+      <if test="bindfingerenablewrite != null">
+        BINDFINGERENABLEWRITE = #{bindfingerenablewrite,jdbcType=INTEGER},
+      </if>
+      <if test="mobileCount != null">
+        MOBILE_COUNT = #{mobileCount,jdbcType=INTEGER},
+      </if>
+      <if test="deductionRate != null">
+        DEDUCTION_RATE = #{deductionRate,jdbcType=INTEGER},
+      </if>
+      <if test="noMobileMaxCount != null">
+        NO_MOBILE_MAX_COUNT = #{noMobileMaxCount,jdbcType=INTEGER},
+      </if>
+      <if test="lowestTime != null">
+        LOWEST_TIME = #{lowestTime,jdbcType=INTEGER},
+      </if>
+      <if test="controlpaycard != null">
+        CONTROLPAYCARD = #{controlpaycard,jdbcType=INTEGER},
+      </if>
+      <if test="sixfiveidcardlimit != null">
+        SIXFIVEIDCARDLIMIT = #{sixfiveidcardlimit,jdbcType=INTEGER},
+      </if>
+      <if test="adminlimit != null">
+        ADMINLIMIT = #{adminlimit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bjbywx.eai.entity.netbar.bmc.domain.NetbarSetting">
+    update BMC.NETBAR_SETTING
+    set SERVICE_CODE = #{serviceCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      MAXADMIN = #{maxadmin,jdbcType=INTEGER},
+      ADMINTIMER = #{admintimer,jdbcType=INTEGER},
+      DUPCERTIDTIMES = #{dupcertidtimes,jdbcType=INTEGER},
+      MONCERTIDRATIO = #{moncertidratio,jdbcType=INTEGER},
+      SHUTOUT_TM = #{shutoutTm,jdbcType=INTEGER},
+      ADMIN_LOGOUT = #{adminLogout,jdbcType=INTEGER},
+      CLIENT_LOGOUT = #{clientLogout,jdbcType=INTEGER},
+      MOBILE_PWD_LOGIN_TM = #{mobilePwdLoginTm,jdbcType=INTEGER},
+      MOBILE_SWITCH_TM = #{mobileSwitchTm,jdbcType=INTEGER},
+      IDTEMP_COUNT = #{idtempCount,jdbcType=INTEGER},
+      IS_FGBOUND = #{isFgbound,jdbcType=INTEGER},
+      AUTO_UPLOAD_TRACK = #{autoUploadTrack,jdbcType=INTEGER},
+      MEDIA_COM = #{mediaCom,jdbcType=INTEGER},
+      IS_PRICE_LIMIT = #{isPriceLimit,jdbcType=INTEGER},
+      COMMON_PRICE = #{commonPrice,jdbcType=INTEGER},
+      NIGHT_PRICE = #{nightPrice,jdbcType=INTEGER},
+      TIME_PRICE = #{timePrice,jdbcType=INTEGER},
+      IS_MEMFUN_LIMIT = #{isMemfunLimit,jdbcType=INTEGER},
+      MEM_FUNCTION_NEW = #{memFunctionNew,jdbcType=INTEGER},
+      MEM_FUNCTION_ADD = #{memFunctionAdd,jdbcType=INTEGER},
+      MEM_ADD_PRESENT = #{memAddPresent,jdbcType=INTEGER},
+      IS_IDLECHECKOUT_LIMIT = #{isIdlecheckoutLimit,jdbcType=INTEGER},
+      TEMPIDLE_TM = #{tempidleTm,jdbcType=INTEGER},
+      MEMIDLE_TM = #{memidleTm,jdbcType=INTEGER},
+      IS_PCNUMLIMIT = #{isPcnumlimit,jdbcType=INTEGER},
+      PCLIMIT_NUM = #{pclimitNum,jdbcType=INTEGER},
+      SPOT_PERCENT = #{spotPercent,jdbcType=VARCHAR},
+      LOSS_REASON = #{lossReason,jdbcType=VARCHAR},
+      GET_FINGER_PIC = #{getFingerPic,jdbcType=INTEGER},
+      GET_FINGER_UNLOCK = #{getFingerUnlock,jdbcType=INTEGER},
+      OVERNIGHT_TIME = #{overnightTime,jdbcType=VARCHAR},
+      MACHINEAUTH = #{machineauth,jdbcType=INTEGER},
+      NETBAR_CHECK = #{netbarCheck,jdbcType=INTEGER},
+      UPLOAD_REAL_NAME = #{uploadRealName,jdbcType=INTEGER},
+      SHOW_PHOTO = #{showPhoto,jdbcType=INTEGER},
+      TEMPUSERPERCENT = #{tempuserpercent,jdbcType=VARCHAR},
+      FINGER_EXAM = #{fingerExam,jdbcType=INTEGER},
+      MEM_TAO_CAN = #{memTaoCan,jdbcType=INTEGER},
+      MEM_JI_DIAN = #{memJiDian,jdbcType=INTEGER},
+      MEM_ZENG_SONG = #{memZengSong,jdbcType=INTEGER},
+      MEM_ZENG_SONG_BI_LI = #{memZengSongBiLi,jdbcType=INTEGER},
+      MEM_BIND_ACCOUNT = #{memBindAccount,jdbcType=INTEGER},
+      PHONE_OPEN_ACCOUNT = #{phoneOpenAccount,jdbcType=INTEGER},
+      TIME_OUT = #{timeOut,jdbcType=INTEGER},
+      ADD_MONEY = #{addMoney,jdbcType=INTEGER},
+      CHANGE_USER_NUMBER = #{changeUserNumber,jdbcType=INTEGER},
+      BINDFINGERENABLEWRITE = #{bindfingerenablewrite,jdbcType=INTEGER},
+      MOBILE_COUNT = #{mobileCount,jdbcType=INTEGER},
+      DEDUCTION_RATE = #{deductionRate,jdbcType=INTEGER},
+      NO_MOBILE_MAX_COUNT = #{noMobileMaxCount,jdbcType=INTEGER},
+      LOWEST_TIME = #{lowestTime,jdbcType=INTEGER},
+      CONTROLPAYCARD = #{controlpaycard,jdbcType=INTEGER},
+      SIXFIVEIDCARDLIMIT = #{sixfiveidcardlimit,jdbcType=INTEGER},
+      ADMINLIMIT = #{adminlimit,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
